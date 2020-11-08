@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lushi.cao.s301011302">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LushiLab4">
+        <activity android:name=".fragment.LushiPatientFragment"></activity>
+        <activity android:name=".fragment.CaoPatientFragment" />
+        <activity android:name=".fragment.LushiAllPatientFragment" />
+        <activity android:name=".fragment.LushiMyPatientFragment" />
+        <activity android:name=".fragment.LushiPlaceholderFragment" />
+        <activity android:name=".adapter.CaoTabAdapter" />
+        <activity android:name=".CaoAddTest" />
+        <activity android:name=".CaoAddPatient" />
+        <activity android:name=".CaoActivitySearch" />
+        <activity android:name=".CaoActivityViewInformation" />
+        <activity android:name=".LushiActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
