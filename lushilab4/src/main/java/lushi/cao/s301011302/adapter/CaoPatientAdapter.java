@@ -10,18 +10,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import lushi.cao.s301011302.R;
+import lushi.cao.s301011302.model.Patient;
 
 public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.ViewHolder> {
-    ArrayList<String> users;
+    private List<Patient> patients =  new ArrayList<>();
     Context context;
 
-    public CaoPatientAdapter(Context c, ArrayList<String> list){
-        this.users = list;
-        this.context = c;
-    }
+//    public CaoPatientAdapter(Context c, List<Patient> patientList){
+//        patients = patientList;
+//        this.context = c;
+//    }
 
     @Override
     public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -31,22 +34,32 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
 
     @Override
     public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position){
-        holder.first.setText(users.get(position));
-        holder.last.setText("hi");
+        String name = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
+        holder.fullName.setText(name);
+        holder.docId.setText(String.valueOf(patients.get(position).getDoctorID()));
+        holder.room.setText(patients.get(position).getRoom());
     }
 
     @Override
     public int getItemCount(){
-        return users.size();
+        return patients.size();
+    }
+
+    public void setPatients(List<Patient> patients){
+        this.patients = patients;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView first;
-        public TextView last;
+        public TextView fullName;
+        public TextView docId;
+        public TextView room;
+
         public ViewHolder(View itemView){
             super(itemView);
-            first = itemView.findViewById(R.id.lushiFirstTv);
-            last = itemView.findViewById(R.id.lushiLastTv);
+            fullName = itemView.findViewById(R.id.lushiFullNameTV);
+            docId = itemView.findViewById(R.id.lushiDoctorIDTV);
+            room = itemView.findViewById(R.id.lushiPatientRoomTV);
         }
     }
 }

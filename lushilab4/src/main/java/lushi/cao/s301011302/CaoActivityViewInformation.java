@@ -16,6 +16,7 @@ import java.util.List;
 
 import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.adapter.CaoTabAdapter;
+import lushi.cao.s301011302.model.Patient;
 
 public class CaoActivityViewInformation extends AppCompatActivity {
     FloatingActionButton addTestFab;
@@ -23,6 +24,7 @@ public class CaoActivityViewInformation extends AppCompatActivity {
     FloatingActionButton mainFab;
     boolean isFABOpen;
     CaoPatientAdapter adapter;
+    Patient patient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

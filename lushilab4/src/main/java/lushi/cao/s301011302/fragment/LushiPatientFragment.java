@@ -24,7 +24,6 @@ public class LushiPatientFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     CaoPatientAdapter adapter;
     RecyclerView recylcerView;
-    ArrayList<String> users;
 
     public static LushiPatientFragment newInstance(int index) {
         LushiPatientFragment fragment = new LushiPatientFragment();
@@ -44,14 +43,6 @@ public class LushiPatientFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.patient_fragment, container, false);
 
-        recylcerView = root.findViewById(R.id.lushiRecyclerView);
-        users = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            users.add("Lushi #"+i);
-        }
-        recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new CaoPatientAdapter(getActivity().getApplicationContext(),users);
-        recylcerView.setAdapter(adapter);
 
         return root;
     }

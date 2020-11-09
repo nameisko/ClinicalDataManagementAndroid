@@ -3,16 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp"
-    android:orientation="horizontal">
+    android:orientation="vertical">
     <TextView
-        android:id="@+id/lushiFirstTv"
-        android:layout_width="match_parent"
+        android:id="@+id/lushiFullNameTV"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"/>
-    <TextView
-        android:id="@+id/lushiLastTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="hello"/>
 
+    <TextView
+        android:id="@+id/lushiDoctorIDTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/lushiPatientRoomTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

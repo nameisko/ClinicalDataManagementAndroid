@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import lushi.cao.s301011302.fragment.LushiPlaceholderFragment;
+
 public class LushiActivity extends AppCompatActivity {
 
     @Override
