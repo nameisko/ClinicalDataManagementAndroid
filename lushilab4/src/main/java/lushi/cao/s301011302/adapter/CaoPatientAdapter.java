@@ -21,11 +21,6 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     private List<Patient> patients =  new ArrayList<>();
     Context context;
 
-//    public CaoPatientAdapter(Context c, List<Patient> patientList){
-//        patients = patientList;
-//        this.context = c;
-//    }
-
     @Override
     public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.patient_list,parent,false);

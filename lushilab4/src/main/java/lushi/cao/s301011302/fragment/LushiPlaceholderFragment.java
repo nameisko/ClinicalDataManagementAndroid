@@ -41,8 +41,6 @@ public class LushiPlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     RecyclerView recylcerView;
     CaoPatientAdapter adapter;
-    List<Patient> patients;
-    AppDatabase db;
     PatientViewModel patientViewModel;
 
     public static LushiPlaceholderFragment newInstance(int index) {

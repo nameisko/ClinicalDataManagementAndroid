@@ -64,8 +64,4 @@ public class CaoAddPatient extends AppCompatActivity {
             }
         });
     }
-
-    protected void addPatient(){
-
-    }
 }
