@@ -17,6 +17,7 @@ import lushi.cao.s301011302.model.Test;
 
 public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHolder> {
     private List<Test> tests =  new ArrayList<>();
+    private Patient patient;
 
     @NonNull
     @Override
@@ -39,6 +40,15 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
     public void setTests(List<Test> tests){
         this.tests = tests;
         notifyDataSetChanged();
+    }
+
+    public Test getTestAt(int index){
+        return tests.get(index);
+    }
+
+    public void setTestsAndPatient(List<Test> tests, Patient p){
+        this.tests = tests;
+        patient = p;
     }
 
     @Override

@@ -19,6 +19,7 @@ import lushi.cao.s301011302.model.Patient;
 
 public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.ViewHolder> {
     private List<Patient> patients =  new ArrayList<>();
+    Patient patient;
     Context context;
 
     @Override
@@ -42,6 +43,11 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
 
     public void setPatients(List<Patient> patients){
         this.patients = patients;
+        notifyDataSetChanged();
+    }
+
+    public void setPatient(Patient patient){
+        this.patient = patient;
         notifyDataSetChanged();
     }
 

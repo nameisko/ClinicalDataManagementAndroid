@@ -24,7 +24,10 @@ public class TestRepository {
 
         new InsertTestAsyncTask(testDao).execute(test);
     }
+    public void delete(Test test){
 
+        new DeleteTestAsyncTask(testDao).execute(test);
+    }
     public LiveData<List<Test>> getPatientTests(int id){
         return testDao.getPatientTests(id);
     }
@@ -43,6 +46,20 @@ public class TestRepository {
         @Override
         protected Void doInBackground(Test... tests){
             testDao.insert(tests[0]);
+            return null;
+        }
+    }
+
+    private static class DeleteTestAsyncTask extends AsyncTask<Test, Void, Void> {
+        private TestDao testDao;
+
+        private DeleteTestAsyncTask(TestDao dao){
+            testDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Test... tests){
+            testDao.delete(tests[0]);
             return null;
         }
     }

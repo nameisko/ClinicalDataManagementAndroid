@@ -25,6 +25,10 @@ public class TestViewModel extends AndroidViewModel {
         allTests = repo.getAllTests();
     }
 
+    public void delete(Test test){
+        repo.delete(test);
+    }
+
     public void insert(Test test){
         repo.insert(test);
     }
