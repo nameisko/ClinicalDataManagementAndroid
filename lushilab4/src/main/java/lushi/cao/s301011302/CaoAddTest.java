@@ -20,6 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -64,7 +66,9 @@ public class CaoAddTest extends AppCompatActivity {
     String date;
     String bp;
     String temperature;
-    String covid;
+    boolean covid;
+    RadioGroup radioGroup;
+    RadioButton covidNegativeRadioBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,8 @@ public class CaoAddTest extends AppCompatActivity {
         setContentView(R.layout.activity_cao_add_test);
         sharedPref = getApplicationContext().getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         sharedPrefEditor = sharedPref.edit();
+        radioGroup = findViewById(R.id.lushiCovidRadioGp);
+        covidNegativeRadioBtn = findViewById(R.id.lushiCovidNeBtn);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         spinner = findViewById(R.id.lushiPatientSpinner);
@@ -81,13 +87,19 @@ public class CaoAddTest extends AppCompatActivity {
         calenderET = findViewById(R.id.lushiTestDateET);
         temperature = temperatureET.getText().toString();
         bp = bpET.getText().toString();
-
         adapter = new CaoTestAdapter();
-        String first, last;
-//        String[] array = patientName.split(" ");
-//        first = array[0];
-//        last = array[1];
-//        LiveData<Patient> patient = patientViewModel.getSpecificPatient("Donald", "Trump");
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == covidNegativeRadioBtn.getId()){
+                    covid = false;
+                }
+                else{
+                    covid = true;
+                }
+            }
+        });
 
         addTestBtn = findViewById(R.id.lushiAddTestBtn);
         addTestBtn.setOnClickListener(new View.OnClickListener() {
@@ -99,8 +111,8 @@ public class CaoAddTest extends AppCompatActivity {
 //                        temperature, false, date));
                 date = dateET.getText().toString();
                 patientID = Integer.parseInt(patientName.split(" ")[0]);
-                testViewModel.insert(new Test(patientID, 80,
-                        temperature, false, date));
+                testViewModel.insert(new Test(patientID, bp,
+                        temperature, covid, date));
                 sharedPrefEditor.putInt("patientId", patientID);
                 sharedPrefEditor.apply();
                 Intent intent = new Intent(getApplicationContext(), LushiTestFragment.class);

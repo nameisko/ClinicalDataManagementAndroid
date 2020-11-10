@@ -16,7 +16,7 @@ public class Test {
     private int patientID;
 
     @ColumnInfo(name = "blood_pressure")
-    private int bloodPressure;
+    private String bloodPressure;
 
     @ColumnInfo(name = "temperature")
     private String temperature;
@@ -29,7 +29,7 @@ public class Test {
 
     public Test(){}
 
-    public Test(int pid, int bp, String temp, boolean covid, String date){
+    public Test(int pid, String bp, String temp, boolean covid, String date){
         patientID = pid;
         bloodPressure = bp;
         temperature = temp;
@@ -38,14 +38,14 @@ public class Test {
     }
     public int getTestID(){return testID;}
     public int getPatientID(){return patientID;}
-    public int getBloodPressure(){return bloodPressure;}
+    public String getBloodPressure(){return bloodPressure;}
     public String getTemperature(){return temperature;}
     public boolean getCovid(){return covid;}
     public String getDate(){return date;}
 
     public void setTestID(int id){testID = id;}
     public void setPatientID(int id){patientID = id;}
-    public void setBloodPressure(int bp){bloodPressure = bp;}
+    public void setBloodPressure(String bp){bloodPressure = bp;}
     public void setTemperature(String temp){temperature = temp;}
     public void setCovid(boolean c){covid = c;}
     public void setDate(String date){this.date = date;}

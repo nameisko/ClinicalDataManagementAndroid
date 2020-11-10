@@ -42,8 +42,7 @@ public class LushiPatientFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.patient_fragment, container, false);
-
-
+        
         return root;
     }
 }

@@ -14,6 +14,9 @@ public class Patient {
     @ColumnInfo(name = "doctor_id")
     private int doctorID;
 
+    @ColumnInfo(name = "department")
+    private String department;
+
     @ColumnInfo(name = "first_name")
     private String firstName;
 
@@ -25,11 +28,12 @@ public class Patient {
 
     public Patient(){}
 
-    public Patient(int docId, String firstName, String lastName, String room) {
+    public Patient(int docId, String firstName, String lastName, String room, String dept) {
         this.doctorID = docId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.room = room;
+        department = dept;
     }
 
     public int getPatientID(){return patientID;}
@@ -47,4 +51,6 @@ public class Patient {
     public String getRoom(){return room;}
     public void setRoom(String r){room = r;}
 
+    public String getDepartment(){return department;}
+    public void setDepartment(String dept){department = dept;}
 }

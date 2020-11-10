@@ -28,7 +28,7 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String covidResult = tests.get(position).getCovid()?"postive":"negative";
+        String covidResult = tests.get(position).getCovid()?"Postive":"Negative";
 
         holder.patientID.setText(String.valueOf(tests.get(position).getPatientID()));
         holder.temperature.setText(tests.get(position).getTemperature());

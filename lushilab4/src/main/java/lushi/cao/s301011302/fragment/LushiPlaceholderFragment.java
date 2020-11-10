@@ -56,6 +56,7 @@ public class LushiPlaceholderFragment extends Fragment {
         recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new CaoPatientAdapter();
         recylcerView.setAdapter(adapter);
+        adapter.setContext(context);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
         switch (getArguments().getInt(ARG_SECTION_NUMBER)){
             case 1:

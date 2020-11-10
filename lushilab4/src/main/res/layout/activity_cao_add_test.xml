@@ -58,13 +58,13 @@
         android:layout_height="wrap_content" >
 
         <RadioButton
-            android:id="@+id/lushiCovidBtn1"
+            android:id="@+id/lushiCovidPoBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="positive" />
 
         <RadioButton
-            android:id="@+id/lushiCovidBtn2"
+            android:id="@+id/lushiCovidNeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="negative" />

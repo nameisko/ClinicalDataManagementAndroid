@@ -5,15 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_weight="1"
     tools:context=".fragment.LushiTestFragment">
     <TextView
         android:id="@+id/lushiPatientInfoTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.1"
         android:textSize="24sp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lushiTestRecyclerView"
+        android:layout_weight="0.8"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
     </androidx.recyclerview.widget.RecyclerView>
+    <Button
+        android:id="@+id/lushidTestDoneBtn"
+        android:layout_weight="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done" />
 </LinearLayout>

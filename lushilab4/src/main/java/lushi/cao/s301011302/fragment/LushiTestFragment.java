@@ -21,6 +21,8 @@ import lushi.cao.s301011302.model.Test;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,7 @@ public class LushiTestFragment extends AppCompatActivity {
     Integer patientID;
     Patient patient1;
     String info;
+    Button doneBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +50,12 @@ public class LushiTestFragment extends AppCompatActivity {
         patientID = sharedPref.getInt("patientId",0);
         recyclerView = findViewById(R.id.lushiTestRecyclerView);
         patientInfo = findViewById(R.id.lushiPatientInfoTV);
+        doneBtn = findViewById(R.id.lushidTestDoneBtn);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CaoTestAdapter();
         recyclerView.setAdapter(adapter);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
-
         testViewModel.getPatientTests(patientID).observe(this, new Observer<List<Test>>() {
             @Override
             public void onChanged(List<Test> tests) {
@@ -66,6 +69,13 @@ public class LushiTestFragment extends AppCompatActivity {
             public void onChanged(Patient patient) {
                 info = patient.getFirstName() + " " + patient.getLastName();
                 patientInfo.setText("patient name:" + info);
+            }
+        });
+
+        doneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
@@ -83,6 +93,7 @@ public class LushiTestFragment extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"test deleted",Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+
         //LiveData<Patient> patient= patientViewModel.getSpecificPatient(patientID);
 
         //patientInfo.setText((CharSequence) patient);
