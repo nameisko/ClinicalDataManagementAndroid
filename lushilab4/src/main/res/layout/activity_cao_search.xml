@@ -15,14 +15,14 @@
         android:text="Enter patient ID" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/lushiSearchByIdET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:text="Name" />
+        android:hint="enter ID" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/lushiSearchByIdBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search by patient ID" />

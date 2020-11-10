@@ -102,7 +102,7 @@ public class CaoAddTest extends AppCompatActivity {
                 testViewModel.insert(new Test(patientID, 80,
                         temperature, false, date));
                 sharedPrefEditor.putInt("patientId", patientID);
-                sharedPrefEditor.commit();
+                sharedPrefEditor.apply();
                 Intent intent = new Intent(getApplicationContext(), LushiTestFragment.class);
                 startActivity(intent);
             }

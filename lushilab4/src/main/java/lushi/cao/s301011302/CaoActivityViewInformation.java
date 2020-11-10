@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -25,6 +26,7 @@ public class CaoActivityViewInformation extends AppCompatActivity {
     boolean isFABOpen;
     CaoPatientAdapter adapter;
     Patient patient;
+    Button searchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,6 @@ public class CaoActivityViewInformation extends AppCompatActivity {
         viewPager.setAdapter(tabAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
         addPatientFab = findViewById(R.id.lushiAddPatientFab);
         addTestFab = findViewById(R.id.lushiAddTestFab);
         mainFab = findViewById(R.id.lushiMainFab);
@@ -79,7 +80,9 @@ public class CaoActivityViewInformation extends AppCompatActivity {
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.lushiMenuSearch:
+            case R.id.lushiMenuSearchBtn:
+                Intent intent = new Intent(getApplicationContext(), CaoActivitySearch.class);
+                startActivity(intent);
                 //Do Whatever you want to do here.
                 return true;
         }
