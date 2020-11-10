@@ -11,7 +11,7 @@
         android:textSize="24sp"/>
 
     <TextView
-        android:id="@+id/lushiDoctorIDTV"
+        android:id="@+id/lushiPatientIDTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView

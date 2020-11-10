@@ -31,7 +31,7 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position){
         String name = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
         holder.fullName.setText(name);
-        holder.docId.setText(String.valueOf(patients.get(position).getDoctorID()));
+        holder.patientId.setText(String.valueOf(patients.get(position).getPatientID()));
         holder.room.setText(patients.get(position).getRoom());
     }
 
@@ -47,13 +47,13 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView fullName;
-        public TextView docId;
+        public TextView patientId;
         public TextView room;
 
         public ViewHolder(View itemView){
             super(itemView);
             fullName = itemView.findViewById(R.id.lushiFullNameTV);
-            docId = itemView.findViewById(R.id.lushiDoctorIDTV);
+            patientId = itemView.findViewById(R.id.lushiPatientIDTV);
             room = itemView.findViewById(R.id.lushiPatientRoomTV);
         }
     }

@@ -85,4 +85,10 @@
         android:ems="10"
         android:hint="select date" />
 
+    <Button
+        android:id="@+id/lushiAddTestBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="submit" />
+
 </LinearLayout>

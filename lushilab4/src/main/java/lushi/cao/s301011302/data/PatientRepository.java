@@ -14,6 +14,7 @@ public class PatientRepository {
     private PatientDao patientDao;
     private LiveData<List<Patient>> allPatients;
     private LiveData<List<Patient>> myPatients;
+    private LiveData<Patient> patient;
 
     public PatientRepository(Application application){
         AppDatabase db = AppDatabase.getInstance(application);
@@ -25,6 +26,10 @@ public class PatientRepository {
     public void insert(Patient patient){
 
         new InsertPatientAsyncTask(patientDao).execute(patient);
+    }
+
+    public LiveData<Patient> getSpecificPatient(int id){
+        return patientDao.getPatient(id);
     }
 
     public LiveData<List<Patient>> getAllPatients(){

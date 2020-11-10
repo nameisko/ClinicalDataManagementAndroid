@@ -18,6 +18,9 @@ public interface PatientDao {
     @Query("SELECT * FROM patient WHERE doctor_id == 1")
     LiveData<List<Patient>> getMyPatients();
 
+    @Query("SELECT * FROM patient WHERE patient_id =:id")
+    LiveData<Patient> getPatient(int id);
+
     @Insert
     void insert(Patient patient);
 

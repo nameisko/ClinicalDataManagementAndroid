@@ -4,10 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "patient")
 public class Patient {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "patient_id")
     private int patientID;
 
     @ColumnInfo(name = "doctor_id")

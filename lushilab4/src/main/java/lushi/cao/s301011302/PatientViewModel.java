@@ -19,12 +19,17 @@ public class PatientViewModel extends AndroidViewModel {
     private PatientRepository repo;
     private LiveData<List<Patient>> allPatients;
     private LiveData<List<Patient>> myPatients;
+    private LiveData<Patient> patient;
 
     public PatientViewModel(@NonNull Application application) {
         super(application);
         repo = new PatientRepository(application);
         allPatients = repo.getAllPatients();
         myPatients = repo.getMyPatients();
+    }
+
+    public LiveData<Patient> getSpecificPatient(int id){
+        return repo.getSpecificPatient(id);
     }
 
     public void insert(Patient patient){
