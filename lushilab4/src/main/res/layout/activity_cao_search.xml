@@ -34,12 +34,12 @@
         android:text="Department" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/lushiSearchDeptSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/searchByDeptBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Search by department" />

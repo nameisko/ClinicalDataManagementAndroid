@@ -40,6 +40,8 @@ public class PatientRepository {
         return myPatients;
     }
 
+    public LiveData<List<Patient>> getPatientsByDept(String dept){return patientDao.getPatientsByDept(dept);}
+
     private static class InsertPatientAsyncTask extends AsyncTask<Patient, Void, Void>{
         private PatientDao patientDao;
 

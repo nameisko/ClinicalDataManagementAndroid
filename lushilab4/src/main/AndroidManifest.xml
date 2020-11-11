@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LushiLab4">
-        <activity android:name=".fragment.LushiTestFragment"></activity>
+        <activity android:name=".fragment.LushiTestFrag"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.LushiLab4.NoActionBar"></activity>
+        <activity android:name=".fragment.LushiTestFragment" />
         <activity android:name=".fragment.LushiPatientFragment" />
         <activity android:name=".fragment.CaoPatientFragment" />
         <activity android:name=".fragment.LushiAllPatientFragment" />

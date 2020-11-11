@@ -1,12 +1,8 @@
 package lushi.cao.s301011302;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
@@ -25,23 +21,16 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
-import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.adapter.CaoTestAdapter;
-import lushi.cao.s301011302.data.AppDatabase;
 import lushi.cao.s301011302.fragment.LushiTestFragment;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
-
-import static java.security.AccessController.getContext;
+import lushi.cao.s301011302.viewmodel.PatientViewModel;
+import lushi.cao.s301011302.viewmodel.TestViewModel;
 
 public class CaoAddTest extends AppCompatActivity {
 

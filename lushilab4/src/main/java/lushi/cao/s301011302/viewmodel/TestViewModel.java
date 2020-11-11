@@ -1,4 +1,4 @@
-package lushi.cao.s301011302;
+package lushi.cao.s301011302.viewmodel;
 
 import android.app.Application;
 

@@ -21,6 +21,9 @@ public interface PatientDao {
     @Query("SELECT * FROM patient WHERE patient_id =:id")
     LiveData<Patient> getPatient(int id);
 
+    @Query("SELECT * FROM patient WHERE department =:dept")
+    LiveData<List<Patient>> getPatientsByDept(String dept);
+
     @Insert
     void insert(Patient patient);
 

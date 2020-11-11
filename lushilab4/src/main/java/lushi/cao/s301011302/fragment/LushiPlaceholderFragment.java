@@ -16,15 +16,10 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import lushi.cao.s301011302.CaoAddPatient;
-import lushi.cao.s301011302.PatientViewModel;
+import lushi.cao.s301011302.viewmodel.PatientViewModel;
 import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.adapter.CaoPatientAdapter;
-import lushi.cao.s301011302.data.AppDatabase;
-import lushi.cao.s301011302.data.PatientDao;
 import lushi.cao.s301011302.model.Patient;
-
-import static android.app.Activity.RESULT_OK;
 
 public class LushiPlaceholderFragment extends Fragment {
 

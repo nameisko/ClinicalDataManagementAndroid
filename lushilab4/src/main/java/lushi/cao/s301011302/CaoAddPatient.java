@@ -1,9 +1,7 @@
 package lushi.cao.s301011302;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,11 +15,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.List;
-
 import lushi.cao.s301011302.data.AppDatabase;
-import lushi.cao.s301011302.fragment.LushiPlaceholderFragment;
 import lushi.cao.s301011302.model.Patient;
+import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
 public class CaoAddPatient extends AppCompatActivity {
     SharedPreferences sharedPref;

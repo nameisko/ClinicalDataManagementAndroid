@@ -10,15 +10,17 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import lushi.cao.s301011302.PatientViewModel;
+import lushi.cao.s301011302.CaoActivityViewInformation;
+import lushi.cao.s301011302.viewmodel.PatientViewModel;
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.TestViewModel;
+import lushi.cao.s301011302.viewmodel.TestViewModel;
 import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.adapter.CaoTestAdapter;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -76,6 +78,8 @@ public class LushiTestFragment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                Intent intent = new Intent(getApplicationContext(), CaoActivityViewInformation.class);
+                startActivity(intent);
             }
         });
 

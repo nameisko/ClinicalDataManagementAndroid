@@ -4,10 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "patient")
+@Entity(tableName = "patient", primaryKeys = {"patient_id"})
 public class Patient {
+    public static int uniqueId = 1000;
 
-    @PrimaryKey(autoGenerate = true)
+    //@PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "patient_id")
     private int patientID;
 
@@ -29,11 +30,13 @@ public class Patient {
     public Patient(){}
 
     public Patient(int docId, String firstName, String lastName, String room, String dept) {
+        this.patientID = uniqueId;
         this.doctorID = docId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.room = room;
         department = dept;
+        uniqueId++;
     }
 
     public int getPatientID(){return patientID;}
