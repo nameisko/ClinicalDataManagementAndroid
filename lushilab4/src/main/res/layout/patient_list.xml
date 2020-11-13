@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
+    android:padding="10dp"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/lushiFullNameTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"/>
-    <TextView
-        android:id="@+id/lushiPatientDeptTV"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/lushiPatientIDTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/lushiPatientRoomTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        <TableRow
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
+            <TextView
+                android:id="@+id/lushiPatientIDTV"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/lushiPatientRoomTV"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
+            <TextView
+                android:id="@+id/lushiFullNameTV"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"/>
+            <TextView
+                android:id="@+id/lushiPatientDeptTV"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"/>
+        </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/lushiPatientAgeTV"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/lushiPatientGenderTV2"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+</TableLayout>

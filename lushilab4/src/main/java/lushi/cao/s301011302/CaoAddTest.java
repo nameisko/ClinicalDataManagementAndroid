@@ -1,7 +1,6 @@
 package lushi.cao.s301011302;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +25,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import lushi.cao.s301011302.adapter.CaoTestAdapter;
-import lushi.cao.s301011302.fragment.LushiTestFragment;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
@@ -58,6 +56,7 @@ public class CaoAddTest extends AppCompatActivity {
     boolean covid;
     RadioGroup radioGroup;
     RadioButton covidNegativeRadioBtn;
+    ArrayAdapter<String> dataAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +80,9 @@ public class CaoAddTest extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == covidNegativeRadioBtn.getId()){
+                if (checkedId == covidNegativeRadioBtn.getId()) {
                     covid = false;
-                }
-                else{
+                } else {
                     covid = true;
                 }
             }
@@ -104,7 +102,7 @@ public class CaoAddTest extends AppCompatActivity {
                         temperature, covid, date));
                 sharedPrefEditor.putInt("patientId", patientID);
                 sharedPrefEditor.apply();
-                Intent intent = new Intent(getApplicationContext(), LushiTestFragment.class);
+                Intent intent = new Intent(getApplicationContext(), CaoTest.class);
                 startActivity(intent);
             }
         });
@@ -117,46 +115,53 @@ public class CaoAddTest extends AppCompatActivity {
         calenderET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog =new DatePickerDialog(CaoAddTest.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(CaoAddTest.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calenderET.setText(dayOfMonth+"/"+month+"/"+year);
+                        calenderET.setText(dayOfMonth + "/" + month + "/" + year);
                     }
-                },year,month,day);
+                }, year, month, day);
                 datePickerDialog.show();
             }
         });
 
-        patientNameList = new ArrayList<>();
-        patientNameList.add("Select a patient");
-        patientViewModel.getAllPatients().observe(this, new Observer<List<Patient>>() {
-            @Override
-            public void onChanged(List<Patient> patients) {
-                for(Patient p : patients){
-                    patientNameList.add(p.getPatientID() + " " + p.getFirstName() +" "+ p.getLastName());
-                    //allPatients.add(p);
-                }
+        patientNameList = new ArrayList<String>();
+        //patientNameList.add("Select a patient");
+//        patientViewModel.getAllPatients().observe(this, new Observer<List<Patient>>() {
+//            @Override
+//            public void onChanged(List<Patient> patients) {
+//                for(Patient p : patients){
+//                    patientNameList.add(p.getPatientID() + " " + p.getFirstName() +" "+ p.getLastName());
+//                    //allPatients.add(p);
+//                }
+//            }
+//        });
+        patientViewModel.getAllPatients().observe(this, results -> {
+            for (Patient p : results) {
+                patientNameList.add(p.getPatientID() + " " + p.getFirstName() + " " + p.getLastName());
             }
+            dataAdapter = new ArrayAdapter<String>(
+                    this, android.R.layout.simple_spinner_item, patientNameList);
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(dataAdapter);
         });
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, patientNameList);
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
+//                this, android.R.layout.simple_spinner_item, patientNameList);
 
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 //String item = parent.getItemAtPosition(position).toString();
                 patientName = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + patientName.split(" ")[0] , Toast.LENGTH_LONG).show();
+                Toast.makeText(parent.getContext(), "Selected: " + patientName.split(" ")[0], Toast.LENGTH_LONG).show();
                 spinner.setSelection(position);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(parent.getContext(), "Selected: none" , Toast.LENGTH_LONG).show();
+                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
             }
         });
     }

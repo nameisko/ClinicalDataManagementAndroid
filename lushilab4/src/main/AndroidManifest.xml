@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="lushi.cao.s301011302">
+    package="lushi.cao.s301011302" >
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LushiLab4">
-        <activity android:name=".fragment.LushiTestFrag"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.LushiLab4.NoActionBar"></activity>
-        <activity android:name=".fragment.LushiTestFragment" />
-        <activity android:name=".fragment.LushiPatientFragment" />
-        <activity android:name=".fragment.CaoPatientFragment" />
-        <activity android:name=".fragment.LushiAllPatientFragment" />
-        <activity android:name=".fragment.LushiMyPatientFragment" />
+        android:theme="@style/Theme.LushiLab4" >
+        <activity android:name=".CaoTest" />
+        <activity android:name=".CaoPatient" />
         <activity android:name=".fragment.LushiPlaceholderFragment" />
         <activity android:name=".adapter.CaoTabAdapter" />
         <activity android:name=".CaoAddTest" />

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/addPatientLayout"
     tools:context=".CaoAddPatient">
     <TextView
         android:id="@+id/textView"
@@ -29,6 +30,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
+    <TextView
+        android:id="@+id/lushiPatientGenderTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender" />
+
+    <RadioGroup
+        android:id="@+id/lushiPatientGenderRdGp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/lushiMaleRdBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/lushiFemaleRdBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/lushiPatientAgeTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="patient age" />
+
+    <EditText
+        android:id="@+id/lushiPatientAgeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"

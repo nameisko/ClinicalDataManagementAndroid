@@ -6,14 +6,20 @@ import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import lushi.cao.s301011302.data.AppDatabase;
 import lushi.cao.s301011302.model.Patient;
@@ -30,21 +36,34 @@ public class CaoAddPatient extends AppCompatActivity {
     PatientViewModel patientViewModel;
     AppDatabase db;
     Context context;
-    EditText firstName;
-    EditText lastName;
-    EditText roomNum;
-    Button button;
+    EditText firstNameET;
+    EditText lastNameET;
+    EditText roomET;
+    EditText genderET;
+    EditText ageET;
+    String firstName;
+    String lastName;
+    String room;
+    String gender;
+    String age;
+    Button addPatientBtn;
     Spinner spinner;
     String deptStr;
+    RadioGroup genderRdGp;
+    RadioButton femaleRadioBtn;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cao_add_patient);
-        sharedPref = getSharedPreferences("patientInfo", MODE_PRIVATE);
         context = getApplicationContext();
+        sharedPref = getSharedPreferences("patientInfo", MODE_PRIVATE);
+        layout = findViewById(R.id.addPatientLayout);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         departments = getResources().getStringArray(R.array.departments);
+        genderRdGp = findViewById(R.id.lushiPatientGenderRdGp);
+        femaleRadioBtn = findViewById(R.id.lushiFemaleRdBtn);
         spinner = findViewById(R.id.lushiDeptSpinner);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item, departments);
@@ -55,7 +74,6 @@ public class CaoAddPatient extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 deptStr = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + deptStr , Toast.LENGTH_LONG).show();
                 spinner.setSelection(position);
             }
 
@@ -65,25 +83,65 @@ public class CaoAddPatient extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.lushiAddPatientBtn);
-        button.setOnClickListener(new View.OnClickListener() {
+        genderRdGp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                firstName = findViewById(R.id.lushiPatientFirstET);
-                lastName = findViewById(R.id.lushiPatientLastET);
-                roomNum = findViewById(R.id.lushiPatientRoomET);
-                String first = firstName.getText().toString();
-                String last = lastName.getText().toString();
-                String room = roomNum.getText().toString();
-                Intent data = new Intent();
-                data.putExtra("first",first);
-                data.putExtra("last",last);
-                data.putExtra("room",room);
-                setResult(RESULT_OK, data);
-                patientViewModel.insert(new Patient(1, first, last, room, deptStr));
-                Toast.makeText(getApplicationContext(),"inserted " + first,Toast.LENGTH_SHORT).show();
-                finish();
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == femaleRadioBtn.getId()) {
+                    gender = "Female";
+                } else {
+                    gender = "Male";
+                }
             }
         });
+
+        addPatientBtn = findViewById(R.id.lushiAddPatientBtn);
+        addPatientBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(validatePatientInfo()) {
+                    //Toast.makeText(getApplicationContext(), "Selected: " + deptStr , Toast.LENGTH_LONG).show();
+                    Patient newPatient = new Patient(1, firstName, lastName, room, deptStr,gender,age);
+                    patientViewModel.insert(newPatient);
+                    finish();
+                }
+            }
+        });
+    }
+    public boolean validatePatientInfo(){
+        boolean isValid = true;
+        firstNameET = findViewById(R.id.lushiPatientFirstET);
+        lastNameET = findViewById(R.id.lushiPatientLastET);
+        roomET = findViewById(R.id.lushiPatientRoomET);
+        ageET = findViewById(R.id.lushiPatientAgeET);
+        firstName = firstNameET.getText().toString().trim();;
+        lastName = lastNameET.getText().toString().trim();;
+        room = roomET.getText().toString().trim();
+        age = ageET.getText().toString().trim();
+        String numRegex = "[0-9]";
+
+        if(firstName.isEmpty()){
+            firstNameET.requestFocus();
+            firstNameET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(lastName.isEmpty()){
+            lastNameET.requestFocus();
+            lastNameET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(age.isEmpty() || age.matches(numRegex)){
+            ageET.requestFocus();
+            ageET.setError("Enter valid age");
+            isValid = false;
+        }
+        if(room.isEmpty()){
+            roomET.requestFocus();
+            roomET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(deptStr.isEmpty()){
+            isValid = false;
+        }
+        return isValid;
     }
 }

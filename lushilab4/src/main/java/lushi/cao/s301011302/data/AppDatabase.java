@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.Executor;
@@ -55,12 +56,13 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids){
-            patientDao.insert(new Patient(2,"Donald", "Trump", "111A","Blood Lab"));
-            patientDao.insert(new Patient(2,"Joe", "Biden", "210C","Allergy"));
-            patientDao.insert(new Patient(3,"Cristiano", "Ronaldo", "222B","Nerosurgery"));
-            patientDao.insert(new Patient(4,"Kayne", "West", "317A","Orthopedic"));
-            patientDao.insert(new Patient(4,"Justin", "Biber", "318A","Orthopedic"));
-            testDao.insert(new Test(5, "90","36c",false,"10/12/2020"));
+            patientDao.insert(new Patient(2,"Donald", "Trump", "111A","Blood Lab","Male", "74"));
+            patientDao.insert(new Patient(2,"Joe", "Biden", "210C","Allergy","Male", "77"));
+            patientDao.insert(new Patient(3,"Cristiano", "Ronaldo", "222B","Nerosurgery","Male","35"));
+            patientDao.insert(new Patient(4,"Kayne", "West", "317A","Orthopedic","Male","43"));
+            patientDao.insert(new Patient(4,"Justin", "Biber", "318A","Orthopedic","Male","26"));
+            patientDao.insert(new Patient(4,"Hillary", "Clinton", "318A","Allergy","Female","73"));
+            testDao.insert(new Test(2, "90","36c",false,"10/12/2020"));
             return null;
         }
     }

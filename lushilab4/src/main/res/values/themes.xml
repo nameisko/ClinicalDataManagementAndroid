@@ -21,9 +21,11 @@
     <style name="Theme.LushiLab4.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.LushiLab4.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.LushiLab4.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

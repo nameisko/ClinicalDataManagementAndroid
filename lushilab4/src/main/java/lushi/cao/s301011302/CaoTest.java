@@ -1,18 +1,14 @@
-package lushi.cao.s301011302.fragment;
+package lushi.cao.s301011302;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import lushi.cao.s301011302.CaoActivityViewInformation;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
-import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.viewmodel.TestViewModel;
 import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.adapter.CaoTestAdapter;
@@ -20,17 +16,19 @@ import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
-public class LushiTestFragment extends AppCompatActivity {
+public class CaoTest extends AppCompatActivity {
 
     SharedPreferences sharedPref;
     PatientViewModel patientViewModel;
@@ -40,14 +38,16 @@ public class LushiTestFragment extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView patientInfo;
     Integer patientID;
-    Patient patient1;
+    Patient patient;
     String info;
     Button doneBtn;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_fragment);
+        setContentView(R.layout.activity_cao_test);
+        layout = findViewById(R.id.testLayout);
         sharedPref = getApplicationContext().getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         patientID = sharedPref.getInt("patientId",0);
         recyclerView = findViewById(R.id.lushiTestRecyclerView);
@@ -66,20 +66,18 @@ public class LushiTestFragment extends AppCompatActivity {
             }
         });
 
-        patientViewModel.getSpecificPatient(patientID).observe(this, new Observer<Patient>() {
-            @Override
-            public void onChanged(Patient patient) {
-                info = patient.getFirstName() + " " + patient.getLastName();
-                patientInfo.setText("patient name:" + info);
-            }
+        patientViewModel.getSpecificPatient(patientID).observe(this, specificPatient -> {
+            patient = specificPatient;
+            String info = "patient name: " + patient.getFirstName() + " " + patient.getLastName() + "\n" +
+                    "room: " + patient.getRoom();
+
+            patientInfo.setText(info);
         });
 
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(getApplicationContext(), CaoActivityViewInformation.class);
-                startActivity(intent);
             }
         });
 
@@ -94,7 +92,8 @@ public class LushiTestFragment extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 testViewModel.delete(adapter.getTestAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(getApplicationContext(),"test deleted",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"test deleted",Toast.LENGTH_SHORT).show();
+                showSnackbar();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -102,5 +101,10 @@ public class LushiTestFragment extends AppCompatActivity {
 
         //patientInfo.setText((CharSequence) patient);
 
+    }
+    public void showSnackbar(){
+        Snackbar snackbar = Snackbar.make(layout, "Test record deleted",Snackbar.LENGTH_LONG)
+                .setActionTextColor(Color.parseColor("#f5b461"));
+        snackbar.show();
     }
 }

@@ -1,7 +1,6 @@
 package lushi.cao.s301011302;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
@@ -16,11 +15,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.List;
-
-import lushi.cao.s301011302.fragment.LushiPatientFragment;
-import lushi.cao.s301011302.fragment.LushiTestFragment;
-import lushi.cao.s301011302.model.Test;
 import lushi.cao.s301011302.viewmodel.TestViewModel;
 
 public class CaoActivitySearch extends AppCompatActivity {
@@ -70,7 +64,7 @@ public class CaoActivitySearch extends AppCompatActivity {
                 id = Integer.parseInt(idET.getText().toString());
                 sharedPrefEditor.putInt("patientId", id);
                 sharedPrefEditor.apply();
-                Intent intent = new Intent(getApplicationContext(), LushiTestFragment.class);
+                Intent intent = new Intent(getApplicationContext(), CaoTest.class);
                 startActivity(intent);
             }
         });
@@ -81,7 +75,7 @@ public class CaoActivitySearch extends AppCompatActivity {
             public void onClick(View v) {
                 sharedPrefEditor.putString("department", deptStr);
                 sharedPrefEditor.apply();
-                Intent intent = new Intent(getApplicationContext(), LushiPatientFragment.class);
+                Intent intent = new Intent(getApplicationContext(), CaoPatient.class);
                 startActivity(intent);
             }
         });
