@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import lushi.cao.s301011302.CaoActivityViewInformation;
 import lushi.cao.s301011302.R;
 
 public class HomeFragment extends Fragment {

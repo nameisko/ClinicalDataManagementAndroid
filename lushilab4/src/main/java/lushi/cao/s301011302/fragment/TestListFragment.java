@@ -35,43 +35,42 @@ import lushi.cao.s301011302.viewmodel.TestViewModel;
 public class TestListFragment extends Fragment {
     SharedPreferences sharedPref;
     PatientViewModel patientViewModel;
-        TestViewModel testViewModel;
-        CaoTestAdapter testAdapter;
-        CaoPatientAdapter patientAdapter;
-        RecyclerView recyclerView;
-        RecyclerView recyclerView2;
-        TextView patientInfo;
-        Integer patientID;
-        Patient patient;
-        String info;
-        Button doneBtn;
-        LinearLayout layout;
+    TestViewModel testViewModel;
+    CaoTestAdapter testAdapter;
+    CaoPatientAdapter patientAdapter;
+    RecyclerView recyclerView;
+    RecyclerView recyclerView2;
+    TextView patientInfo;
+    Integer patientID;
+    Patient patient;
+    String info;
+    LinearLayout layout;
     public TestListFragment() {
-            // Required empty public constructor
-        }
+        // Required empty public constructor
+    }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            View root = inflater.inflate(R.layout.activity_cao_test, container, false);
-            Context context = getActivity().getApplicationContext();
-            layout = root.findViewById(R.id.testLayout);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View root = inflater.inflate(R.layout.fragment_test_list, container, false);
+        Context context = getActivity().getApplicationContext();
+        layout = root.findViewById(R.id.testLayout);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        patientID = sharedPref.getInt("patientId",0);
+        patientID = sharedPref.getInt("patientId",1);
         recyclerView = root.findViewById(R.id.lushiTestRecyclerView);
         recyclerView2 = root.findViewById(R.id.lushiTestPatientInfoRecyclerView);
-        doneBtn = root.findViewById(R.id.lushidTestDoneBtn);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView2.setLayoutManager(new LinearLayoutManager(context));
         testAdapter = new CaoTestAdapter();
         patientAdapter = new CaoPatientAdapter();
+        patientAdapter.setView(root);
         patientAdapter.setContext(context);
         recyclerView.setAdapter(testAdapter);
         recyclerView2.setAdapter(patientAdapter);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
-        testViewModel.getPatientTests(patientID).observe(getActivity(), new Observer<List<Test>>() {
+        testViewModel.getPatientTests(1).observe(getActivity(), new Observer<List<Test>>() {
             @Override
             public void onChanged(List<Test> tests) {
                 //update recycler view
@@ -84,13 +83,6 @@ public class TestListFragment extends Fragment {
             public void onChanged(List<Patient> patient) {
                 //update recycler view
                 patientAdapter.setPatients(patient);
-            }
-        });
-
-        doneBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //finish();
             }
         });
 

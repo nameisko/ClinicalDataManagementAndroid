@@ -2,32 +2,22 @@ package lushi.cao.s301011302;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
-import com.google.android.material.tabs.TabLayout;
 
-import java.util.List;
-
-import lushi.cao.s301011302.fragment.HomeFragment;
 import lushi.cao.s301011302.fragment.SearchFragment;
-import lushi.cao.s301011302.main.SectionsPagerAdapter;
 
 public class LushiActivity extends AppCompatActivity {
     FloatingActionButton addTestFab;
@@ -73,8 +63,6 @@ public class LushiActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.lushiMenuSearchBtn:
-                Intent intent = new Intent(this, CaoAddTest.class);
-                startActivity(intent);
 
                 //Do Whatever you want to do here.
                 return true;

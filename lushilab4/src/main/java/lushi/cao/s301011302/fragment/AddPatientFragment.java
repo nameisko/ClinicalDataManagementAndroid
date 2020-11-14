@@ -2,6 +2,7 @@ package lushi.cao.s301011302.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.data.AppDatabase;
@@ -71,6 +74,7 @@ public class AddPatientFragment extends Fragment {
         lastNameET = root.findViewById(R.id.lushiPatientLastET);
         roomET = root.findViewById(R.id.lushiPatientRoomET);
         ageET = root.findViewById(R.id.lushiPatientAgeET);
+        layout = root.findViewById(R.id.addPatientLayout);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         departments = getResources().getStringArray(R.array.departments);
         genderRdGp = root.findViewById(R.id.lushiPatientGenderRdGp);
@@ -130,6 +134,8 @@ public class AddPatientFragment extends Fragment {
                 if(validatePatientInfo()){
                     Patient newPatient = new Patient(1, firstName, lastName, room, deptStr,gender,age);
                     patientViewModel.insert(newPatient);
+                    String fName =newPatient.getFirstName() + " " + newPatient.getLastName();
+                    showSnackbar(fName);
                     navController = Navigation.findNavController(view);
                     navController.navigateUp();
                 }
@@ -178,5 +184,10 @@ public class AddPatientFragment extends Fragment {
             isValid = false;
         }
         return isValid;
+    }
+    public void showSnackbar(String patientName){
+        Snackbar snackbar = Snackbar.make(layout, patientName+ " Added",Snackbar.LENGTH_LONG)
+                .setActionTextColor(Color.parseColor("#f5b461"));
+        snackbar.show();
     }
 }

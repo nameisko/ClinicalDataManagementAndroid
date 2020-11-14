@@ -21,7 +21,6 @@ import java.util.List;
 
 import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.adapter.CaoPatientAdapter;
-import lushi.cao.s301011302.main.PageViewModel;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
@@ -39,7 +38,6 @@ public class AllPatientFragment extends Fragment {
     NavController navController;
     String department;
     boolean allPatients;
-    PageViewModel pageViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +55,7 @@ public class AllPatientFragment extends Fragment {
         adapter.setActivity(getActivity());
         fragmentManager = this.getActivity().getSupportFragmentManager();
         adapter.setFm(fragmentManager);
+        adapter.setView(root);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
         patientViewModel.getAllPatients().observe(getActivity(), new Observer<List<Patient>>() {
             @Override

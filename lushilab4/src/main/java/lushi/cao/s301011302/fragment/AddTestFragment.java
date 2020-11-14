@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -29,13 +31,12 @@ import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import lushi.cao.s301011302.CaoAddTest;
-import lushi.cao.s301011302.CaoTest;
 import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.adapter.CaoTestAdapter;
 import lushi.cao.s301011302.model.Patient;
@@ -75,6 +76,7 @@ public class AddTestFragment extends Fragment {
     RadioButton covidNegativeRadioBtn;
     ArrayAdapter<String> dataAdapter;
     View view;
+    LinearLayout layout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,6 +90,7 @@ public class AddTestFragment extends Fragment {
         sharedPrefEditor = sharedPref.edit();
         radioGroup = root.findViewById(R.id.lushiCovidRadioGp);
         covidNegativeRadioBtn = root.findViewById(R.id.lushiCovidNeBtn);
+        layout = root.findViewById(R.id.addTestLayout);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         spinner = root.findViewById(R.id.lushiPatientSpinner);
@@ -198,6 +201,8 @@ public class AddTestFragment extends Fragment {
                     patientID = Integer.parseInt(patientName.split(" ")[0]);
                     testViewModel.insert(new Test(patientID, bp,
                             temperature, covid, date));
+                    String fName = patientName.split(" ")[1] +" "+ patientName.split(" ")[2];
+                    showSnackbar(fName);
                     navController = Navigation.findNavController(view);
                     navController.navigateUp();
                 }
@@ -207,5 +212,11 @@ public class AddTestFragment extends Fragment {
 
     public boolean validateTestInfo(){
         return true;
+    }
+
+    public void showSnackbar(String name){
+        Snackbar snackbar = Snackbar.make(layout, "New test added for "+name,Snackbar.LENGTH_LONG)
+                .setActionTextColor(Color.parseColor("#f5b461"));
+        snackbar.show();
     }
 }

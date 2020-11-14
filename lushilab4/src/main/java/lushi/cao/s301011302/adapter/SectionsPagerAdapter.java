@@ -1,4 +1,4 @@
-package lushi.cao.s301011302.main;
+package lushi.cao.s301011302.adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:id="@+id/testLayout"
     android:layout_weight="1"
-    tools:context=".CaoTest">
+    tools:context=".CaoAddTest">
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="0.75"
@@ -39,10 +39,5 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="0.8">
-    <Button
-        android:id="@+id/lushidTestDoneBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Done" />
     </LinearLayout>
 </LinearLayout>

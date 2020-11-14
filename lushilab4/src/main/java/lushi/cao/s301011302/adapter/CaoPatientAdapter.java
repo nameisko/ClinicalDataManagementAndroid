@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.CaoTest;
 import lushi.cao.s301011302.fragment.SearchFragment;
 import lushi.cao.s301011302.fragment.TestListFragment;
 import lushi.cao.s301011302.model.Patient;
@@ -85,15 +84,17 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPrefEditor.putInt("patientId", patients.get(position).getPatientID());
-                sharedPrefEditor.apply();
-                Fragment fg = new TestListFragment();
-                navController = Navigation.findNavController(view);
-                navController.navigate(R.id.action_viewInformationFragment_to_testListFragment);
+                try {
+                    sharedPrefEditor.putInt("patientId", patients.get(position).getPatientID());
+                    sharedPrefEditor.apply();
+                    navController = Navigation.findNavController(view);
+                    navController.navigate(R.id.action_viewInformationFragment_to_testListFragment);
 //                FragmentTransaction fragmentTransaction= fm.beginTransaction();
 //                fragmentTransaction.replace(R.id.action_viewInformationFragment_to_testListFragment,fg)
 //                        .addToBackStack(null)
 //                        .commit();
+                }
+                catch(Exception ex){}
             }
         });
     }
