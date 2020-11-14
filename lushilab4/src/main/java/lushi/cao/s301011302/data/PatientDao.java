@@ -20,7 +20,7 @@ public interface PatientDao {
     LiveData<List<Patient>> getMyPatients();
 
     @Query("SELECT * FROM patient WHERE patient_id =:id")
-    LiveData<Patient> getPatient(int id);
+    LiveData<List<Patient>> getPatient(int id);
 
     @Query("SELECT * FROM patient WHERE department =:dept")
     LiveData<List<Patient>> getPatientsByDept(String dept);

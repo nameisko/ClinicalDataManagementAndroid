@@ -1,30 +1,39 @@
 package lushi.cao.s301011302.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.CaoTest;
+import lushi.cao.s301011302.fragment.SearchFragment;
+import lushi.cao.s301011302.fragment.TestListFragment;
 import lushi.cao.s301011302.model.Patient;
+
 
 public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.ViewHolder> {
     private List<Patient> patients =  new ArrayList<>();
     Patient patient;
     Context context;
+    Activity activity;
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
+    FragmentManager fm;
 
     @Override
     public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -36,6 +45,9 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
         context = c;
     }
 
+    public void setActivity(Activity a){activity = a;}
+
+    public void setFm(FragmentManager fm){this.fm =fm;}
     @Override
     public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position){
         String name = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
@@ -68,11 +80,21 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
             public void onClick(View v) {
                 sharedPrefEditor.putInt("patientId", patients.get(position).getPatientID());
                 sharedPrefEditor.apply();
-                Intent intent = new Intent(context, CaoTest.class);
-                context.startActivity(intent);
+//                Intent intent = new Intent(context, TestListFragment.class);
+//                context.startActivity(intent);
+                Fragment fg = new TestListFragment();
+                FragmentTransaction Ft= fm.beginTransaction();
+                Ft.replace(R.id.patientLayout,fg)
+                .addToBackStack(null)
+                .commit();
             }
         });
     }
+
+    public void showFrag(){
+
+    }
+
 
     @Override
     public int getItemCount(){

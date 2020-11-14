@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="lushi.cao.s301011302.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_viewInformationFragment3"
+            app:destination="@id/viewInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment2"
+        android:name="lushi.cao.s301011302.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/viewInformationFragment"
+        android:name="lushi.cao.s301011302.fragment.ViewInformationFragment"
+        android:label="fragment_view_information"
+        tools:layout="@layout/fragment_view_information" >
+        <action
+            android:id="@+id/action_viewInformationFragment_to_searchFragment2"
+            app:destination="@id/searchFragment2" />
+        <action
+            android:id="@+id/action_viewInformationFragment_to_addPatientFragment"
+            app:destination="@id/addPatientFragment" />
+        <action
+            android:id="@+id/action_viewInformationFragment_to_addTestFragment"
+            app:destination="@id/addTestFragment" />
+        <action
+            android:id="@+id/action_viewInformationFragment_to_testListFragment"
+            app:destination="@id/testListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTestFragment"
+        android:name="lushi.cao.s301011302.fragment.AddTestFragment"
+        android:label="fragment_add_test"
+        tools:layout="@layout/fragment_add_test" />
+    <fragment
+        android:id="@+id/addPatientFragment"
+        android:name="lushi.cao.s301011302.fragment.AddPatientFragment"
+        android:label="fragment_add_patient"
+        tools:layout="@layout/fragment_add_patient" />
+    <fragment
+        android:id="@+id/testListFragment"
+        android:name="lushi.cao.s301011302.fragment.TestListFragment"
+        android:label="fragment_test_list"
+        tools:layout="@layout/fragment_test_list" />
+</navigation>

@@ -1,11 +1,14 @@
 package lushi.cao.s301011302.fragment;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
@@ -31,6 +34,7 @@ public class LushiPlaceholderFragment extends Fragment {
     CaoPatientAdapter adapter;
     PatientViewModel patientViewModel;
     boolean newPatientSubmitted;
+    NavController navController;
     CoordinatorLayout layout;
 
     public static LushiPlaceholderFragment newInstance(int index) {
@@ -53,6 +57,7 @@ public class LushiPlaceholderFragment extends Fragment {
         View root = inflater.inflate(R.layout.activity_cao_patient, container, false);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         layout = root.findViewById(R.id.viewInfoLayout);
+
         recylcerView = root.findViewById(R.id.lushiRecyclerView);
         recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new CaoPatientAdapter();
@@ -81,5 +86,4 @@ public class LushiPlaceholderFragment extends Fragment {
         }
         return root;
     }
-
 }

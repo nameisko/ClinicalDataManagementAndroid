@@ -28,7 +28,7 @@ public class PatientRepository {
         new InsertPatientAsyncTask(patientDao).execute(patient);
     }
 
-    public LiveData<Patient> getSpecificPatient(int id){
+    public LiveData<List<Patient>> getSpecificPatient(int id){
         return patientDao.getPatient(id);
     }
 

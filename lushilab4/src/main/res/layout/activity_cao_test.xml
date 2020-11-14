@@ -5,23 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     android:id="@+id/testLayout"
     android:layout_weight="1"
     tools:context=".CaoTest">
     <LinearLayout
         android:orientation="vertical"
-        android:layout_weight="0.9"
+        android:layout_weight="0.75"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/lushiPatientInfoTV"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="24sp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lushiTestPatientInfoRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="0.2"
+        android:divider="?android:dividerHorizontal"
+        android:showDividers="beginning"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView
@@ -34,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="0.9">
+        android:layout_weight="0.8">
     <Button
         android:id="@+id/lushidTestDoneBtn"
         android:layout_width="match_parent"

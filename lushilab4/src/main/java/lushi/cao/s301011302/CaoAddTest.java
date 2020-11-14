@@ -102,6 +102,7 @@ public class CaoAddTest extends AppCompatActivity {
                         temperature, covid, date));
                 sharedPrefEditor.putInt("patientId", patientID);
                 sharedPrefEditor.apply();
+                finish();
                 Intent intent = new Intent(getApplicationContext(), CaoTest.class);
                 startActivity(intent);
             }

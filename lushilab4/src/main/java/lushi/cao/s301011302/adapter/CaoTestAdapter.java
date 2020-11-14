@@ -30,7 +30,6 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String covidResult = tests.get(position).getCovid()?"Postive":"Negative";
 
-        holder.patientID.setText(String.valueOf(tests.get(position).getPatientID()));
         holder.temperature.setText(tests.get(position).getTemperature());
         holder.bp.setText(String.valueOf(tests.get(position).getBloodPressure()));
         holder.covid.setText(covidResult);
@@ -61,7 +60,6 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
         public TextView temperature;
         public TextView covid;
         public TextView date;
-        public TextView patientID;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -69,7 +67,6 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
             temperature = itemView.findViewById(R.id.lushiTemperatureTV);
             covid = itemView.findViewById(R.id.lushiCovidTV);
             date = itemView.findViewById(R.id.lushiDateTV);
-            patientID = itemView.findViewById(R.id.lushiPatientIDTV);
         }
     }
 }
