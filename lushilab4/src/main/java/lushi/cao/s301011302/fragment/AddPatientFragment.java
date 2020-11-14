@@ -4,8 +4,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +56,9 @@ public class AddPatientFragment extends Fragment {
     RadioGroup genderRdGp;
     RadioButton femaleRadioBtn;
     LinearLayout layout;
+    FragmentTransaction fragmentTransaction;
+    FragmentManager fragmentManager;
+    NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -99,18 +108,43 @@ public class AddPatientFragment extends Fragment {
         });
 
         addPatientBtn = root.findViewById(R.id.lushiAddPatientBtn);
+//        addPatientBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //if(validatePatientInfo()) {
+//                    //Toast.makeText(getApplicationContext(), "Selected: " + deptStr , Toast.LENGTH_LONG).show();
+//                    Patient newPatient = new Patient(1, firstName, lastName, room, deptStr,gender,age);
+//                    patientViewModel.insert(newPatient);
+//                //}
+//            }
+//        });
+        return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         addPatientBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validatePatientInfo()) {
-                    //Toast.makeText(getApplicationContext(), "Selected: " + deptStr , Toast.LENGTH_LONG).show();
+                if(validatePatientInfo()){
                     Patient newPatient = new Patient(1, firstName, lastName, room, deptStr,gender,age);
                     patientViewModel.insert(newPatient);
+                    navController = Navigation.findNavController(view);
+                    navController.navigateUp();
                 }
             }
         });
-        return root;
     }
+
+
+    public void showPatientListFrag(){
+        Fragment fragment = new ViewInformationFragment();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.patientLayout,fragment);
+        fragmentTransaction.commit();
+    }
+
     public boolean validatePatientInfo(){
         boolean isValid = true;
 

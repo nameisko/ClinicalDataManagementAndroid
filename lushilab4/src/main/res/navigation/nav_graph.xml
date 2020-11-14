@@ -33,6 +33,12 @@
         <action
             android:id="@+id/action_viewInformationFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_viewInformationFragment_to_allPatientFragment2"
+            app:destination="@id/allPatientFragment2" />
+        <action
+            android:id="@+id/action_viewInformationFragment_to_myPatientFragment"
+            app:destination="@id/myPatientFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTestFragment"
@@ -50,20 +56,22 @@
         android:label="fragment_test_list"
         tools:layout="@layout/fragment_test_list" />
     <fragment
-        android:id="@+id/patientListFragment"
-        android:name="lushi.cao.s301011302.fragment.MyPatientFragment"
-        android:label="fragment_patient_list"
-        tools:layout="@layout/fragment_patient_list" />
-    <fragment
         android:id="@+id/searchFragment"
         android:name="lushi.cao.s301011302.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_searchFragment_to_patientListFragment"
-            app:destination="@id/patientListFragment" />
-        <action
             android:id="@+id/action_searchFragment_to_testListFragment"
             app:destination="@id/testListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/allPatientFragment2"
+        android:name="lushi.cao.s301011302.fragment.AllPatientFragment"
+        android:label="fragment_all_patient"
+        tools:layout="@layout/fragment_all_patient" />
+    <fragment
+        android:id="@+id/myPatientFragment"
+        android:name="lushi.cao.s301011302.fragment.MyPatientFragment"
+        android:label="fragment_patient_list"
+        tools:layout="@layout/fragment_patient_list" />
 </navigation>

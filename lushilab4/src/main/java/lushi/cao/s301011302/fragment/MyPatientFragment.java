@@ -60,6 +60,7 @@ public class MyPatientFragment extends Fragment {
         adapter.setActivity(getActivity());
         fragmentManager = this.getActivity().getSupportFragmentManager();
         adapter.setFm(fragmentManager);
+        adapter.setView(root);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
         patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
             @Override

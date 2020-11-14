@@ -61,7 +61,7 @@ public class ViewInformationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_cao_patient, container, false);
         Context context = getActivity().getApplicationContext();
-        tabAdapter = new SectionsPagerAdapter(context, getActivity().getSupportFragmentManager());
+        tabAdapter = new SectionsPagerAdapter(context, getChildFragmentManager());
         viewPager= root.findViewById(R.id.view_pager);
         viewPager.setAdapter(tabAdapter);
         TabLayout tabs = root.findViewById(R.id.tabs);

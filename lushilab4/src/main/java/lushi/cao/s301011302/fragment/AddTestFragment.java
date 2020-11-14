@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
@@ -72,6 +74,7 @@ public class AddTestFragment extends Fragment {
     RadioGroup radioGroup;
     RadioButton covidNegativeRadioBtn;
     ArrayAdapter<String> dataAdapter;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,6 +83,7 @@ public class AddTestFragment extends Fragment {
         View root = inflater.inflate(R.layout.activity_cao_add_test, container, false);
         //navController = Navigation.findNavController(root);
         Context context = getActivity().getApplicationContext();
+        view = root;
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         sharedPrefEditor = sharedPref.edit();
         radioGroup = root.findViewById(R.id.lushiCovidRadioGp);
@@ -107,23 +111,21 @@ public class AddTestFragment extends Fragment {
         });
 
         addTestBtn = root.findViewById(R.id.lushiAddTestBtn);
-        addTestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //patientID = specificPatient.getPatientID();
-//                testViewModel.insert(new Test(Integer.parseInt(patientID), Integer.parseInt(bp),
-//                        temperature, false, date));
-                date = dateET.getText().toString();
-                patientID = Integer.parseInt(patientName.split(" ")[0]);
-                testViewModel.insert(new Test(patientID, bp,
-                        temperature, covid, date));
-                sharedPrefEditor.putInt("patientId", patientID);
-                sharedPrefEditor.apply();
-                Intent intent = new Intent(context, CaoTest.class);
-                startActivity(intent);
-            }
-        });
+//        addTestBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                //patientID = specificPatient.getPatientID();
+////                testViewModel.insert(new Test(Integer.parseInt(patientID), Integer.parseInt(bp),
+////                        temperature, false, date));
+//                date = dateET.getText().toString();
+//                patientID = Integer.parseInt(patientName.split(" ")[0]);
+//                testViewModel.insert(new Test(patientID, bp,
+//                        temperature, covid, date));
+////                sharedPrefEditor.putInt("patientId", patientID);
+////                sharedPrefEditor.apply();
+//            }
+//        });
 
         Calendar today = Calendar.getInstance();
         year = today.get(Calendar.YEAR);
@@ -133,7 +135,7 @@ public class AddTestFragment extends Fragment {
         calenderET.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         calenderET.setText(dayOfMonth + "/" + month + "/" + year);
@@ -183,5 +185,27 @@ public class AddTestFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        addTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(validateTestInfo()){
+                    date = dateET.getText().toString();
+                    patientID = Integer.parseInt(patientName.split(" ")[0]);
+                    testViewModel.insert(new Test(patientID, bp,
+                            temperature, covid, date));
+                    navController = Navigation.findNavController(view);
+                    navController.navigateUp();
+                }
+            }
+        });
+    }
+
+    public boolean validateTestInfo(){
+        return true;
     }
 }

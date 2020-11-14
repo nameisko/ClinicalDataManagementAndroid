@@ -73,7 +73,7 @@ public class LushiActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.lushiMenuSearchBtn:
-                Intent intent = new Intent(this, CaoPatient.class);
+                Intent intent = new Intent(this, CaoAddTest.class);
                 startActivity(intent);
 
                 //Do Whatever you want to do here.

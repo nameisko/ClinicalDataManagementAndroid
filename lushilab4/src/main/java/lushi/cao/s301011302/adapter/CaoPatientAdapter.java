@@ -15,6 +15,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,8 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
     FragmentManager fm;
+    NavController navController;
+    View view;
 
     @Override
     public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
@@ -48,6 +52,9 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     public void setActivity(Activity a){activity = a;}
 
     public void setFm(FragmentManager fm){this.fm =fm;}
+
+    public void setView(View v){view =v;}
+
     @Override
     public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position){
         String name = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
@@ -80,13 +87,13 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
             public void onClick(View v) {
                 sharedPrefEditor.putInt("patientId", patients.get(position).getPatientID());
                 sharedPrefEditor.apply();
-//                Intent intent = new Intent(context, TestListFragment.class);
-//                context.startActivity(intent);
                 Fragment fg = new TestListFragment();
-                FragmentTransaction fragmentTransaction= fm.beginTransaction();
-                fragmentTransaction.replace(R.id.patientLayout,fg)
-                        .addToBackStack(null)
-                        .commit();
+                navController = Navigation.findNavController(view);
+                navController.navigate(R.id.action_viewInformationFragment_to_testListFragment);
+//                FragmentTransaction fragmentTransaction= fm.beginTransaction();
+//                fragmentTransaction.replace(R.id.action_viewInformationFragment_to_testListFragment,fg)
+//                        .addToBackStack(null)
+//                        .commit();
             }
         });
     }
