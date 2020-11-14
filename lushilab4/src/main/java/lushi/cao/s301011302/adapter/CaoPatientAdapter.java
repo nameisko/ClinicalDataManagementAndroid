@@ -83,18 +83,13 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
 //                Intent intent = new Intent(context, TestListFragment.class);
 //                context.startActivity(intent);
                 Fragment fg = new TestListFragment();
-                FragmentTransaction Ft= fm.beginTransaction();
-                Ft.replace(R.id.patientLayout,fg)
-                .addToBackStack(null)
-                .commit();
+                FragmentTransaction fragmentTransaction= fm.beginTransaction();
+                fragmentTransaction.replace(R.id.patientLayout,fg)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }
-
-    public void showFrag(){
-
-    }
-
 
     @Override
     public int getItemCount(){

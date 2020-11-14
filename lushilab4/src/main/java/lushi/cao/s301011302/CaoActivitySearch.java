@@ -34,50 +34,6 @@ public class CaoActivitySearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cao_search);
-        sharedPref = getApplicationContext().getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        sharedPrefEditor = sharedPref.edit();
-        testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
-        departments = getResources().getStringArray(R.array.departments);
-        spinner = findViewById(R.id.lushiSearchDeptSpinner);
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, departments);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                deptStr = parent.getItemAtPosition(position).toString();
-                spinner.setSelection(position);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(parent.getContext(), "Selected: none" , Toast.LENGTH_LONG).show();
-            }
-        });
-
-        searchByIdBtn = findViewById(R.id.lushiSearchByIdBtn);
-        searchByIdBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                idET = findViewById(R.id.lushiSearchByIdET);
-                id = Integer.parseInt(idET.getText().toString());
-                sharedPrefEditor.putInt("patientId", id);
-                sharedPrefEditor.apply();
-                Intent intent = new Intent(getApplicationContext(), CaoTest.class);
-                startActivity(intent);
-            }
-        });
-
-        searchByDeptBtn = findViewById(R.id.searchByDeptBtn);
-        searchByDeptBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sharedPrefEditor.putString("department", deptStr);
-                sharedPrefEditor.apply();
-                Intent intent = new Intent(getApplicationContext(), CaoPatient.class);
-                startActivity(intent);
-            }
-        });
     }
 }

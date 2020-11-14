@@ -16,11 +16,10 @@
         <activity android:name=".CaoAddTest" />
         <activity android:name=".CaoAddPatient" />
         <activity android:name=".CaoActivitySearch" />
-        <activity android:name=".CaoActivityViewInformation" />
+        <activity android:name=".CaoActivityViewInformation"/>
         <activity android:name=".LushiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,5 +1,6 @@
 package lushi.cao.s301011302.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import lushi.cao.s301011302.CaoActivityViewInformation;
 import lushi.cao.s301011302.R;
 
 public class HomeFragment extends Fragment {
@@ -26,10 +28,11 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        return root;
-    }
+        button = root.findViewById(R.id.startbtn);
 
-    public HomeFragment(){}
+        return root;
+
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

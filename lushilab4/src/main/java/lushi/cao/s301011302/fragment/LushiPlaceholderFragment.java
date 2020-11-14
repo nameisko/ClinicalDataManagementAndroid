@@ -56,34 +56,34 @@ public class LushiPlaceholderFragment extends Fragment {
         Context context = getContext();
         View root = inflater.inflate(R.layout.activity_cao_patient, container, false);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        layout = root.findViewById(R.id.viewInfoLayout);
+        //layout = root.findViewById(R.id.viewInfoLayout);
 
-        recylcerView = root.findViewById(R.id.lushiRecyclerView);
-        recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new CaoPatientAdapter();
-        recylcerView.setAdapter(adapter);
-        adapter.setContext(context);
-        patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
-        switch (getArguments().getInt(ARG_SECTION_NUMBER)){
-            case 1:
-                patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
-                    @Override
-                    public void onChanged(List<Patient> patients) {
-                        //update recycler view
-                        adapter.setPatients(patients);
-                    }
-                });
-                break;
-            default:
-                patientViewModel.getAllPatients().observe(getActivity(), new Observer<List<Patient>>() {
-                    @Override
-                    public void onChanged(List<Patient> patients) {
-                        //update recycler view
-                        adapter.setPatients(patients);
-                    }
-                });
-                break;
-        }
+//        recylcerView = root.findViewById(R.id.lushiRecyclerView);
+//        recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        adapter = new CaoPatientAdapter();
+//        recylcerView.setAdapter(adapter);
+//        adapter.setContext(context);
+//        patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
+//        switch (getArguments().getInt(ARG_SECTION_NUMBER)){
+//            case 1:
+//                patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
+//                    @Override
+//                    public void onChanged(List<Patient> patients) {
+//                        //update recycler view
+//                        adapter.setPatients(patients);
+//                    }
+//                });
+//                break;
+//            default:
+//                patientViewModel.getAllPatients().observe(getActivity(), new Observer<List<Patient>>() {
+//                    @Override
+//                    public void onChanged(List<Patient> patients) {
+//                        //update recycler view
+//                        adapter.setPatients(patients);
+//                    }
+//                });
+//                break;
+//        }
         return root;
     }
 }

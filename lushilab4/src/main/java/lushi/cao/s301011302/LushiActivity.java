@@ -2,25 +2,32 @@ package lushi.cao.s301011302;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.List;
 
 import lushi.cao.s301011302.fragment.HomeFragment;
 import lushi.cao.s301011302.fragment.SearchFragment;
+import lushi.cao.s301011302.main.SectionsPagerAdapter;
 
 public class LushiActivity extends AppCompatActivity {
     FloatingActionButton addTestFab;
@@ -35,8 +42,9 @@ public class LushiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Button button;
+        NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this,navController);
+        //        Button button;
 //        button = findViewById(R.id.button);
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -53,12 +61,21 @@ public class LushiActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment);
+        navController.navigateUp();
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         switch (id) {
             case R.id.lushiMenuSearchBtn:
-                startSearchFragment();
+                Intent intent = new Intent(this, CaoPatient.class);
+                startActivity(intent);
+
                 //Do Whatever you want to do here.
                 return true;
         }
@@ -67,18 +84,11 @@ public class LushiActivity extends AppCompatActivity {
     }
 
     public void startSearchFragment(){
-
         Fragment fragment = null;
         fragment = new SearchFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .addToBackStack(null)
                 .replace(android.R.id.content, fragment,"searchFrag").commit();
-    }
-
-    public void callIntent(){
-        Intent intent;
-        intent = new Intent(this, CaoActivityViewInformation.class);
-        startActivity(intent);
     }
 }

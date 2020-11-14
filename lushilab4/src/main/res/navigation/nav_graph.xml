@@ -12,20 +12,15 @@
         <action
             android:id="@+id/action_homeFragment_to_viewInformationFragment3"
             app:destination="@id/viewInformationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/searchFragment2"
-        android:name="lushi.cao.s301011302.fragment.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/viewInformationFragment"
         android:name="lushi.cao.s301011302.fragment.ViewInformationFragment"
         android:label="fragment_view_information"
         tools:layout="@layout/fragment_view_information" >
-        <action
-            android:id="@+id/action_viewInformationFragment_to_searchFragment2"
-            app:destination="@id/searchFragment2" />
         <action
             android:id="@+id/action_viewInformationFragment_to_addPatientFragment"
             app:destination="@id/addPatientFragment" />
@@ -35,6 +30,9 @@
         <action
             android:id="@+id/action_viewInformationFragment_to_testListFragment"
             app:destination="@id/testListFragment" />
+        <action
+            android:id="@+id/action_viewInformationFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTestFragment"
@@ -51,4 +49,21 @@
         android:name="lushi.cao.s301011302.fragment.TestListFragment"
         android:label="fragment_test_list"
         tools:layout="@layout/fragment_test_list" />
+    <fragment
+        android:id="@+id/patientListFragment"
+        android:name="lushi.cao.s301011302.fragment.MyPatientFragment"
+        android:label="fragment_patient_list"
+        tools:layout="@layout/fragment_patient_list" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="lushi.cao.s301011302.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_patientListFragment"
+            app:destination="@id/patientListFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_testListFragment"
+            app:destination="@id/testListFragment" />
+    </fragment>
 </navigation>
