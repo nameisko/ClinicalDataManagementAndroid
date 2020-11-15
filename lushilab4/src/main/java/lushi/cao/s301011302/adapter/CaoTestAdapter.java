@@ -30,8 +30,10 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String covidResult = tests.get(position).getCovid()?"Postive":"Negative";
 
-        holder.temperature.setText(tests.get(position).getTemperature());
         holder.bp.setText(String.valueOf(tests.get(position).getBloodPressure()));
+        holder.respiratory.setText(tests.get(position).getRespiratoryRate());
+        holder.oxygen.setText(tests.get(position).getBloodOxygen());
+        holder.heartRate.setText(tests.get(position).getHeartRate());
         holder.covid.setText(covidResult);
         holder.date.setText(tests.get(position).getDate());
     }
@@ -57,16 +59,20 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView bp;
-        public TextView temperature;
+        public TextView respiratory;
+        public TextView oxygen;
+        public TextView heartRate;
         public TextView covid;
         public TextView date;
 
         public ViewHolder(View itemView) {
             super(itemView);
             bp = itemView.findViewById(R.id.lushiBPTV);
-            temperature = itemView.findViewById(R.id.lushiTemperatureTV);
             covid = itemView.findViewById(R.id.lushiCovidTV);
             date = itemView.findViewById(R.id.lushiDateTV);
+            respiratory = itemView.findViewById(R.id.lushiRespTV);
+            oxygen = itemView.findViewById(R.id.lushiOxygenTV);
+            heartRate = itemView.findViewById(R.id.lushiHeartTV);
         }
     }
 }

@@ -13,13 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
-import lushi.cao.s301011302.fragment.HomeFragment;
-import lushi.cao.s301011302.fragment.SearchFragment;
+import lushi.cao.s301011302.fragment.LushiFragmentSearch;
 
 import static androidx.navigation.ui.NavigationUI.onNavDestinationSelected;
 
@@ -72,7 +70,7 @@ public class LushiActivity extends AppCompatActivity {
     }
     public void startSearchFragment(){
         Fragment fragment = null;
-        fragment = new SearchFragment();
+        fragment = new LushiFragmentSearch();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .addToBackStack(null)

@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:id="@+id/testLayout"
     android:layout_weight="1"
-    tools:context=".fragment.TestListFragment">
+    tools:context=".fragment.LushiFragmentTestList">
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="0.75"

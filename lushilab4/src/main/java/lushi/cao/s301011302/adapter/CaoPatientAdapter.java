@@ -2,19 +2,15 @@ package lushi.cao.s301011302.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.fragment.SearchFragment;
-import lushi.cao.s301011302.fragment.TestListFragment;
 import lushi.cao.s301011302.model.Patient;
 
 

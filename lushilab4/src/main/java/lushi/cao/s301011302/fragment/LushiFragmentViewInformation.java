@@ -28,7 +28,7 @@ import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.adapter.SectionsPagerAdapter;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
-public class ViewInformationFragment extends Fragment {
+public class LushiFragmentViewInformation extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -52,7 +52,7 @@ public class ViewInformationFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.activity_cao_patient, container, false);
+        View root = inflater.inflate(R.layout.fragment_patient_list, container, false);
         Context context = getActivity().getApplicationContext();
         tabAdapter = new SectionsPagerAdapter(context, getChildFragmentManager());
         viewPager= root.findViewById(R.id.view_pager);
@@ -63,26 +63,8 @@ public class ViewInformationFragment extends Fragment {
         addTestFab = (FloatingActionButton) root.findViewById(R.id.lushiAddTestFab);
         addPatientFab = root.findViewById(R.id.lushiAddPatientFab);
         addTestFab = root.findViewById(R.id.lushiAddTestFab);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mainFab = root.findViewById(R.id.lushiMainFab);
-//        sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-//        recylcerView = root.findViewById(R.id.lushiRecyclerView);
-//        recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        adapter = new CaoPatientAdapter();
-//        recylcerView.setAdapter(adapter);
-//        adapter.setContext(context);
-//        adapter.setActivity(getActivity());
-//        fragmentManager = this.getActivity().getSupportFragmentManager();
-//        adapter.setFm(fragmentManager);
-//        patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
-//
-//        patientViewModel.getAllPatients().observe(getActivity(), new Observer<List<Patient>>() {
-//            @Override
-//            public void onChanged(List<Patient> patients) {
-//                //update recycler view
-//                adapter.setPatients(patients);
-//            }
-//        });
         return root;
     }
 

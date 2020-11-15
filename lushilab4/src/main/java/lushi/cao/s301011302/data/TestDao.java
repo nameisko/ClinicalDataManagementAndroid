@@ -18,7 +18,7 @@ public interface TestDao {
     @Query("SELECT * FROM test")
     LiveData<List<Test>> getAllTests();
 
-    @Query("SELECT * FROM test WHERE patient_id =:id")
+    @Query("SELECT * FROM test WHERE patient_id =:id ORDER BY DATE DESC")
     LiveData<List<Test>> getPatientTests(int id);
 
     @Insert

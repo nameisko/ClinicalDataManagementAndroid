@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:id="@+id/searchLayout"
-    tools:context=".fragment.SearchFragment">
+    tools:context=".fragment.LushiFragmentSearch">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

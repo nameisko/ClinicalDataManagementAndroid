@@ -32,7 +32,7 @@ import lushi.cao.s301011302.model.Test;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 import lushi.cao.s301011302.viewmodel.TestViewModel;
 
-public class TestListFragment extends Fragment {
+public class LushiFragmentTestList extends Fragment {
     SharedPreferences sharedPref;
     PatientViewModel patientViewModel;
     TestViewModel testViewModel;
@@ -45,7 +45,7 @@ public class TestListFragment extends Fragment {
     Patient patient;
     String info;
     LinearLayout layout;
-    public TestListFragment() {
+    public LushiFragmentTestList() {
         // Required empty public constructor
     }
 
@@ -70,7 +70,7 @@ public class TestListFragment extends Fragment {
         recyclerView2.setAdapter(patientAdapter);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
-        testViewModel.getPatientTests(1).observe(getActivity(), new Observer<List<Test>>() {
+        testViewModel.getPatientTests(patientID).observe(getActivity(), new Observer<List<Test>>() {
             @Override
             public void onChanged(List<Test> tests) {
                 //update recycler view

@@ -17,7 +17,7 @@ import android.widget.Button;
 
 import lushi.cao.s301011302.R;
 
-public class HomeFragment extends Fragment {
+public class LushiFragmentHome extends Fragment {
 
     Button button;
     NavController navController;
@@ -39,10 +39,10 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         homeView = view;
         button = view.findViewById(R.id.startbtn);
-        navController = Navigation.findNavController(view);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                navController = Navigation.findNavController(view);
                 navController.navigate(R.id.action_homeFragment_to_viewInformationFragment3);
             }
         });

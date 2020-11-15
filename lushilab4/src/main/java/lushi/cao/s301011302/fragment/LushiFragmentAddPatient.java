@@ -36,7 +36,7 @@ import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class AddPatientFragment extends Fragment {
+public class LushiFragmentAddPatient extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharePrefEdit;
     String[] departments;
@@ -67,7 +67,7 @@ public class AddPatientFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.activity_cao_add_patient, container, false);
+        View root= inflater.inflate(R.layout.fragment_add_patient, container, false);
         context = getActivity().getApplicationContext();
         sharedPref = context.getSharedPreferences("patientInfo", MODE_PRIVATE);
         firstNameET = root.findViewById(R.id.lushiPatientFirstET);
@@ -145,7 +145,7 @@ public class AddPatientFragment extends Fragment {
 
 
     public void showPatientListFrag(){
-        Fragment fragment = new ViewInformationFragment();
+        Fragment fragment = new LushiFragmentViewInformation();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.patientLayout,fragment);
         fragmentTransaction.commit();
@@ -158,16 +158,17 @@ public class AddPatientFragment extends Fragment {
         lastName = lastNameET.getText().toString().trim();;
         room = roomET.getText().toString().trim();
         age = ageET.getText().toString().trim();
-        String numRegex = "[0-9]";
+        String numRegex = "^\\+?[1-9]\\d*$";
+        String nameRegex = "[a-zA-Z]{2,30}";
 
-        if(firstName.isEmpty()){
+        if(!firstName.matches(nameRegex)){
             firstNameET.requestFocus();
-            firstNameET.setError("Field cannot be empty");
+            firstNameET.setError("Enter a valid first name");
             isValid = false;
         }
-        if(lastName.isEmpty()){
+        if(!lastName.matches(nameRegex)){
             lastNameET.requestFocus();
-            lastNameET.setError("Field cannot be empty");
+            lastNameET.setError("Enter a valid last name");
             isValid = false;
         }
         if(age.isEmpty() || age.matches(numRegex)){

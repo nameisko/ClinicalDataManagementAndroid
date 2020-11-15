@@ -33,8 +33,12 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
@@ -44,33 +48,31 @@ import lushi.cao.s301011302.model.Test;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 import lushi.cao.s301011302.viewmodel.TestViewModel;
 
-public class AddTestFragment extends Fragment {
+public class LushiFragmentAddTest extends Fragment {
 
     NavController navController;
-    FloatingActionButton addTestFab;
-    FloatingActionButton addPatientFab;
-    FloatingActionsMenu mainFab;
     PatientViewModel patientViewModel;
-    Context context;
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
     ArrayList<String> patientNameList;
-    List<Patient> allPatients;
     EditText calenderET;
     Spinner spinner;
     private Integer year, month, day;
     Button addTestBtn;
     TestViewModel testViewModel;
-    RecyclerView recyclerView;
     CaoTestAdapter adapter;
-    EditText temperatureET;
     EditText bpET;
     EditText dateET;
+    EditText oxygenET;
+    EditText respiratoryET;
+    EditText heartRateET;
     Integer patientID;
     String patientName;
     String date;
     String bp;
-    String temperature;
+    String oxygen;
+    String respiratory;
+    String heartRate;
     boolean covid;
     RadioGroup radioGroup;
     RadioButton covidNegativeRadioBtn;
@@ -82,7 +84,7 @@ public class AddTestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.activity_cao_add_test, container, false);
+        View root = inflater.inflate(R.layout.fragment_add_test, container, false);
         //navController = Navigation.findNavController(root);
         Context context = getActivity().getApplicationContext();
         view = root;
@@ -94,12 +96,13 @@ public class AddTestFragment extends Fragment {
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         spinner = root.findViewById(R.id.lushiPatientSpinner);
-        temperatureET = root.findViewById(R.id.lushiTemperatureET);
+        respiratoryET = root.findViewById(R.id.lushirespiratoryRateET);
+        oxygenET = root.findViewById(R.id.lushiBloodOxygenET);
+        heartRateET = root.findViewById(R.id.lushiHeartRateET);
         bpET = root.findViewById(R.id.lushiBloodPressureET);
         dateET = root.findViewById(R.id.lushiTestDateET);
         calenderET = root.findViewById(R.id.lushiTestDateET);
-        temperature = temperatureET.getText().toString();
-        bp = bpET.getText().toString();
+
         adapter = new CaoTestAdapter();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -141,7 +144,8 @@ public class AddTestFragment extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calenderET.setText(dayOfMonth + "/" + month + "/" + year);
+                        String dateText = year + "/" + month + "/" + dayOfMonth;
+                        calenderET.setText(dateText);
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -197,10 +201,14 @@ public class AddTestFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(validateTestInfo()){
+                    respiratory = respiratoryET.getText().toString();
+                    oxygen = respiratoryET.getText().toString();
+                    respiratory = oxygenET.getText().toString();
+                    heartRate = heartRateET.getText().toString();
                     date = dateET.getText().toString();
                     patientID = Integer.parseInt(patientName.split(" ")[0]);
                     testViewModel.insert(new Test(patientID, bp,
-                            temperature, covid, date));
+                            respiratory,oxygen,heartRate, covid, date));
                     String fName = patientName.split(" ")[1] +" "+ patientName.split(" ")[2];
                     showSnackbar(fName);
                     navController = Navigation.findNavController(view);

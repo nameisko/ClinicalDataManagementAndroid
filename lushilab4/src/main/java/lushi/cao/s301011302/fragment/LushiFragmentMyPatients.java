@@ -28,7 +28,7 @@ import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
-public class MyPatientFragment extends Fragment {
+public class LushiFragmentMyPatients extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
     private static final String ARG_SECTION_NUMBER = "section_number";

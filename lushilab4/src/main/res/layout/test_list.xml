@@ -2,30 +2,107 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/lushiDateTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/lushiBPTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/lushiCovidTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/lushiTemperatureTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:orientation="vertical"
+    android:padding="12dp">
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/lushiDeleteTestBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete" />
+        <TableRow
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
 
+            <TextView
+                android:id="@+id/lushiDateTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test date:" />
+
+            <TextView
+                android:id="@+id/lushiDateTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TextView
+                android:id="@+id/lushiBPTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blood pressure:" />
+
+            <TextView
+                android:id="@+id/lushiBPTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TextView
+                android:id="@+id/lushiRespTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Respiratory rate:"/>
+
+            <TextView
+                android:id="@+id/lushiRespTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TextView
+                android:id="@+id/lushiOxygenTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blood oxygen:"/>
+
+            <TextView
+                android:id="@+id/lushiOxygenTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TextView
+                android:id="@+id/lushiHeartTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heart rate:"/>
+
+            <TextView
+                android:id="@+id/lushiHeartTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <TextView
+                android:id="@+id/lushiCovidTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Covid"/>
+
+            <TextView
+                android:id="@+id/lushiCovidTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

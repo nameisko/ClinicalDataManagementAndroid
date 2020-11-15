@@ -24,7 +24,7 @@ import lushi.cao.s301011302.adapter.CaoPatientAdapter;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
-public class AllPatientFragment extends Fragment {
+public class LushiFragmentAllPatients extends Fragment {
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
@@ -47,6 +47,7 @@ public class AllPatientFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_view_information, container, false);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         department = sharedPref.getString("department", null);
+        sharedPrefEditor = sharedPref.edit();
         recylcerView = root.findViewById(R.id.lushiRecyclerView);
         recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new CaoPatientAdapter();
@@ -57,8 +58,8 @@ public class AllPatientFragment extends Fragment {
         adapter.setFm(fragmentManager);
         adapter.setView(root);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
-        if(department.isEmpty()) {
-            patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
+        if(department == null) {
+            patientViewModel.getAllPatients().observe(getActivity(), new Observer<List<Patient>>() {
                 @Override
                 public void onChanged(List<Patient> patients) {
                     //update recycler view
@@ -75,6 +76,8 @@ public class AllPatientFragment extends Fragment {
                 }
             });
         }
+        sharedPrefEditor.putString("department",null);
+        sharedPrefEditor.apply();
         return root;
     }
 }

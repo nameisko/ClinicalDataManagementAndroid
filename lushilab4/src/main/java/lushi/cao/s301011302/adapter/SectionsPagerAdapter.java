@@ -1,27 +1,22 @@
 package lushi.cao.s301011302.adapter;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.fragment.AllPatientFragment;
-import lushi.cao.s301011302.fragment.MyPatientFragment;
+import lushi.cao.s301011302.fragment.LushiFragmentAllPatients;
+import lushi.cao.s301011302.fragment.LushiFragmentMyPatients;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
 public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
-
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor sharedPrefEditor;
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
@@ -38,13 +33,11 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
         // Return a PlaceholderFragment (defined as a static inner class below).
         //return PlaceholderFragment.newInstance(position + 1);
         Fragment fragment = null;
-        sharedPref = mContext.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        sharedPrefEditor = sharedPref.edit();
         switch(position){
             case 0:
-                return fragment = new MyPatientFragment();
+                return fragment = new LushiFragmentMyPatients();
             case 1:
-                return fragment = new AllPatientFragment();
+                return fragment = new LushiFragmentAllPatients();
         }
         return null;
     }
