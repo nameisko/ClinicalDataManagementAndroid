@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/searchLayout"
     tools:context=".fragment.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:background="@color/beige"/>
-    <Button
-        android:id="@+id/endbtn"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="end">
+        android:text="Enter patient ID" />
 
-    </Button>
+    <EditText
+        android:id="@+id/lushiSearchByIdET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="enter ID" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/lushiSearchByIdBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search by patient ID" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Department" />
+
+    <Spinner
+        android:id="@+id/lushiSearchDeptSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/searchByDeptBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search by department" />
+
+</LinearLayout>

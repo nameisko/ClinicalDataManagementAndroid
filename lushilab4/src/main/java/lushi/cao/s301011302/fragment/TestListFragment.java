@@ -57,7 +57,7 @@ public class TestListFragment extends Fragment {
         Context context = getActivity().getApplicationContext();
         layout = root.findViewById(R.id.testLayout);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        patientID = sharedPref.getInt("patientId",1);
+        patientID = sharedPref.getInt("patientId",0);
         recyclerView = root.findViewById(R.id.lushiTestRecyclerView);
         recyclerView2 = root.findViewById(R.id.lushiTestPatientInfoRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));

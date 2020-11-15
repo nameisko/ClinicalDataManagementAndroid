@@ -57,13 +57,24 @@ public class AllPatientFragment extends Fragment {
         adapter.setFm(fragmentManager);
         adapter.setView(root);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
-        patientViewModel.getAllPatients().observe(getActivity(), new Observer<List<Patient>>() {
-            @Override
-            public void onChanged(List<Patient> patients) {
-                //update recycler view
-                adapter.setPatients(patients);
-            }
-        });
+        if(department.isEmpty()) {
+            patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
+                @Override
+                public void onChanged(List<Patient> patients) {
+                    //update recycler view
+                    adapter.setPatients(patients);
+                }
+            });
+        }
+        else{
+            patientViewModel.getPatientsByDept(department).observe(getActivity(), new Observer<List<Patient>>() {
+                @Override
+                public void onChanged(List<Patient> patients) {
+                    //update recycler view
+                    adapter.setPatients(patients);
+                }
+            });
+        }
         return root;
     }
 }

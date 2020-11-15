@@ -12,9 +12,6 @@
         <action
             android:id="@+id/action_homeFragment_to_viewInformationFragment3"
             app:destination="@id/viewInformationFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewInformationFragment"
@@ -30,9 +27,6 @@
         <action
             android:id="@+id/action_viewInformationFragment_to_testListFragment"
             app:destination="@id/testListFragment" />
-        <action
-            android:id="@+id/action_viewInformationFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTestFragment"
@@ -53,9 +47,10 @@
         android:id="@+id/searchFragment"
         android:name="lushi.cao.s301011302.fragment.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
-        <action
-            android:id="@+id/action_searchFragment_to_testListFragment"
-            app:destination="@id/testListFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/allPatientFragment"
+        android:name="lushi.cao.s301011302.fragment.AllPatientFragment"
+        android:label="fragment_all_patient"
+        tools:layout="@layout/fragment_all_patient" />
 </navigation>

@@ -101,8 +101,6 @@ public class ViewInformationFragment extends Fragment {
             public void onClick(View v) {
                 mainFab.collapse();
                 navController.navigate(R.id.action_viewInformationFragment_to_addTestFragment);
-//                Intent intent = new Intent(getApplicationContext(), CaoAddTest.class);
-//                startActivity(intent);
             }
         });
 
@@ -111,8 +109,6 @@ public class ViewInformationFragment extends Fragment {
             public void onClick(View v) {
                 mainFab.collapse();
                 navController.navigate(R.id.action_viewInformationFragment_to_addPatientFragment);
-//                Intent intent = new Intent(getApplicationContext(), CaoAddPatient.class);
-//                startActivity(intent);
             }
         });
     }

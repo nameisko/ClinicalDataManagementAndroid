@@ -60,14 +60,14 @@ public class MyPatientFragment extends Fragment {
         adapter.setFm(fragmentManager);
         adapter.setView(root);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
-        patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
-            @Override
-            public void onChanged(List<Patient> patients) {
-                //update recycler view
-                adapter.setPatients(patients);
-            }
-        });
 
+            patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
+                @Override
+                public void onChanged(List<Patient> patients) {
+                    //update recycler view
+                    adapter.setPatients(patients);
+                }
+            });
         return root;
     }
 }
