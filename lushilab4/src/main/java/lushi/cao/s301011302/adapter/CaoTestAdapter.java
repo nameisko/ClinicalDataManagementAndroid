@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.adapter;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,14 +32,14 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String covidResult = tests.get(position).getCovid()?"Postive":"Negative";
+        String covidResult = tests.get(position).getCovid()?"Positive":"Negative";
 
         holder.bp.setText(String.valueOf(tests.get(position).getBloodPressure()));
         holder.respiratory.setText(tests.get(position).getRespiratoryRate());
         holder.oxygen.setText(tests.get(position).getBloodOxygen());
         holder.heartRate.setText(tests.get(position).getHeartRate());
         holder.covid.setText(covidResult);
-        holder.date.setText(tests.get(position).getDate());
+        holder.date.setText(tests.get(position).getDate().toString());
     }
 
     public void setTests(List<Test> tests){

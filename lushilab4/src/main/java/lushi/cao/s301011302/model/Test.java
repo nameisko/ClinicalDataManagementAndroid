@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.model;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -33,11 +37,11 @@ public class Test {
     private boolean covid;
 
     @ColumnInfo(name = "date")
-    private String date;
+    private Date date;
 
     public Test(){}
 
-    public Test(int pid, String bp, String rr, String bo, String hr, boolean covid, String date){
+    public Test(int pid, String bp, String rr, String bo, String hr, boolean covid, Date date){
         patientID = pid;
         bloodPressure = bp;
         respiratoryRate = rr;
@@ -51,7 +55,7 @@ public class Test {
     public String getBloodPressure(){return bloodPressure;}
     public String getRespiratoryRate(){return respiratoryRate;}
     public boolean getCovid(){return covid;}
-    public String getDate(){return date;}
+    public Date getDate(){return date;}
     public String getBloodOxygen(){return bloodOxygen;}
     public String getHeartRate(){return heartRate;}
 
@@ -60,7 +64,7 @@ public class Test {
     public void setBloodPressure(String bp){bloodPressure = bp;}
     public void setRespiratoryRate(String rr){respiratoryRate = rr;}
     public void setCovid(boolean c){covid = c;}
-    public void setDate(String date){this.date = date;}
+    public void setDate(Date date){this.date = date;}
     public void setBloodOxygen(String bo){bloodOxygen = bo;}
     public void setHeartRate(String hr){heartRate = hr;}
 

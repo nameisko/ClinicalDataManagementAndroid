@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.fragment;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -79,6 +83,8 @@ public class LushiFragmentAddTest extends Fragment {
     ArrayAdapter<String> dataAdapter;
     View view;
     LinearLayout layout;
+    Date testDate;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -144,8 +150,17 @@ public class LushiFragmentAddTest extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        String dateText = year + "/" + month + "/" + dayOfMonth;
+                        int correctMonth = month+1;
+                        String dateText = year + "/" + correctMonth + "/" + dayOfMonth;
                         calenderET.setText(dateText);
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                        today.set(year, month, dayOfMonth);
+                        String formatedDate = sdf.format(today.getTime());
+                        try {
+                            testDate = sdf.parse(formatedDate);
+                        } catch (ParseException e) {
+                        }
+                        Toast.makeText(getContext(),"test date: "+formatedDate,Toast.LENGTH_SHORT).show();
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -172,9 +187,6 @@ public class LushiFragmentAddTest extends Fragment {
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(dataAdapter);
         });
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
-//                this, android.R.layout.simple_spinner_item, patientNameList);
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -201,14 +213,9 @@ public class LushiFragmentAddTest extends Fragment {
             @Override
             public void onClick(View v) {
                 if(validateTestInfo()){
-                    respiratory = respiratoryET.getText().toString();
-                    oxygen = respiratoryET.getText().toString();
-                    respiratory = oxygenET.getText().toString();
-                    heartRate = heartRateET.getText().toString();
-                    date = dateET.getText().toString();
                     patientID = Integer.parseInt(patientName.split(" ")[0]);
                     testViewModel.insert(new Test(patientID, bp,
-                            respiratory,oxygen,heartRate, covid, date));
+                            respiratory,oxygen,heartRate, covid, testDate));
                     String fName = patientName.split(" ")[1] +" "+ patientName.split(" ")[2];
                     showSnackbar(fName);
                     navController = Navigation.findNavController(view);
@@ -219,7 +226,41 @@ public class LushiFragmentAddTest extends Fragment {
     }
 
     public boolean validateTestInfo(){
-        return true;
+        boolean isValid = true;
+        bp = bpET.getText().toString();
+        respiratory = respiratoryET.getText().toString().trim();
+        oxygen = respiratoryET.getText().toString().trim();
+        heartRate = heartRateET.getText().toString().trim();
+        date = dateET.getText().toString().trim();
+        if(bp.isEmpty()){
+            bpET.requestFocus();
+            bpET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(respiratory.isEmpty()){
+            respiratoryET.requestFocus();
+            respiratoryET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(oxygen.isEmpty()){
+            oxygenET.requestFocus();
+            oxygenET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(heartRate.isEmpty()){
+            heartRateET.requestFocus();
+            heartRateET.setError("Field cannot be empty");
+            isValid = false;
+        }
+        if(date.isEmpty()){
+            dateET.requestFocus();
+            dateET.setError("Please select a date");
+            isValid = false;
+        }
+        else{
+            dateET.setError(null);
+        }
+        return isValid;
     }
 
     public void showSnackbar(String name){

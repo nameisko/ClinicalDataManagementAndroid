@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.adapter;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.content.Context;
 
 import androidx.annotation.Nullable;

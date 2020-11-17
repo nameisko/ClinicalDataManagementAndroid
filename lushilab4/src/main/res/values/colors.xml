@@ -17,4 +17,9 @@
     <color name="grey">#52575d</color>
     <color name="bright_yellow">#fddb3a</color>
     <color name="beige">#f6f4e6</color>
+
+    <color name="light_red">#f1d1d1</color>
+    <color name="bright_blue">#d2f5e3</color>
+    <color name="light_navy">#d9e4dd</color>
+    <color name="light_brown">#cdc9c3</color>
 </resources>

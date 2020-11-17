@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.data;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -7,16 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.Date;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import lushi.cao.s301011302.model.Converters;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
 
 @Database(entities = {Patient.class, Test.class}, version = 1, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
     private static final String DATABASE_NAME = "appdb";
@@ -62,18 +70,19 @@ public abstract class AppDatabase extends RoomDatabase {
             patientDao.insert(new Patient(4,"Justin", "Biber", "318A","Orthopedic","Male","26"));
             patientDao.insert(new Patient(4,"Hillary", "Clinton", "318A","Allergy","Female","73"));
 
-            testDao.insert(new Test(1, "100","14","85%","104",true,"11/11/2020"));
-            testDao.insert(new Test(1, "100","16","95%","90",false,"11/23/2020"));
+            Date date = new Date();
+            testDao.insert(new Test(1, "100","14","85%","104",true,date));
+            testDao.insert(new Test(1, "100","16","95%","90",false,date));
 
-            testDao.insert(new Test(2, "90","20","90%","120",false,"10/13/2020"));
-            testDao.insert(new Test(2, "92","19","95%","110",false,"10/14/2020"));
-
-
-            testDao.insert(new Test(3, "110","19","86%","112",true,"11/13/2020"));
-            testDao.insert(new Test(3, "89","18","90%","100",false,"11/28/2020"));
-
-            testDao.insert(new Test(4, "120","19","88%","90",true,"11/11/2020"));
-            testDao.insert(new Test(4, "90","18","92%","100",false,"11/15/2020"));
+//            testDao.insert(new Test(2, "90","20","90%","120",false,"10/13/2020"));
+//            testDao.insert(new Test(2, "92","19","95%","110",false,"10/14/2020"));
+//
+//
+//            testDao.insert(new Test(3, "110","19","86%","112",true,"11/13/2020"));
+//            testDao.insert(new Test(3, "89","18","90%","100",false,"11/28/2020"));
+//
+//            testDao.insert(new Test(4, "120","19","88%","90",true,"11/11/2020"));
+//            testDao.insert(new Test(4, "90","18","92%","100",false,"11/15/2020"));
             return null;
         }
     }

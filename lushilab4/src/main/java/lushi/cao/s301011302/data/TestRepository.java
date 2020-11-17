@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.data;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.app.Application;
 import android.os.AsyncTask;
 

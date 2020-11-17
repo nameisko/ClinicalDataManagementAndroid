@@ -1,121 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addTestLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     android:orientation="vertical"
-    android:id="@+id/addTestLayout"
     tools:context=".fragment.LushiFragmentAddTest">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/lushiPatientNameTV"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="patient name" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <Spinner
-        android:id="@+id/lushiPatientSpinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown" />
-
-    <TextView
-        android:id="@+id/lushiBloodPressureTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blood pressure" />
-
-    <EditText
-        android:id="@+id/lushiBloodPressureET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="blood pressure" />
-
-    <TextView
-        android:id="@+id/lushirespiratoryRateTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Respiratory rate in BPM" />
-
-    <EditText
-        android:id="@+id/lushirespiratoryRateET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Breathes/minute" />
-    <TextView
-        android:id="@+id/lushiBloodOxygenTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blood oxygen level in percentage" />
-
-    <EditText
-        android:id="@+id/lushiBloodOxygenET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="%" />
-    <TextView
-        android:id="@+id/lushiHeartRateTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Heart rate" />
-
-    <EditText
-        android:id="@+id/lushiHeartRateET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Beats/minute" />
-    <TextView
-        android:id="@+id/lushiCovidTestTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="covid19 test" />
-
-    <RadioGroup
-        android:id="@+id/lushiCovidRadioGp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:id="@+id/lushiCovidPoBtn"
+        <TextView
+            android:id="@+id/lushiPatientNameTV"
+            style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="positive" />
+            android:text="Select Patient" />
 
-        <RadioButton
-            android:id="@+id/lushiCovidNeBtn"
+        <Spinner
+            android:id="@+id/lushiPatientSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="negative" />
-    </RadioGroup>
+            android:spinnerMode="dropdown" />
 
-    <TextView
-        android:id="@+id/lushiTestDateTV"
+        <TextView
+            android:id="@+id/lushiBloodPressureTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blood Pressure" />
+
+        <EditText
+            android:id="@+id/lushiBloodPressureET"
+            style="@style/formEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter blood pressure"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lushirespiratoryRateTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Respiratory Rate" />
+
+        <EditText
+            android:id="@+id/lushirespiratoryRateET"
+            style="@style/formEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter respiratory rate (bpm)"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lushiBloodOxygenTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blood Oxygen Level" />
+
+        <EditText
+            android:id="@+id/lushiBloodOxygenET"
+            style="@style/formEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Blood Oxygen Level (%)"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lushiHeartRateTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Heart Rate" />
+
+        <EditText
+            android:id="@+id/lushiHeartRateET"
+            style="@style/formEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter heart rate (bpm)" />
+
+        <TextView
+            android:id="@+id/lushiCovidTestTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COVID-19" />
+
+        <RadioGroup
+            android:id="@+id/lushiCovidRadioGp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/lushiCovidPoBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Positive" />
+
+            <RadioButton
+                android:id="@+id/lushiCovidNeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Negative" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/lushiTestDateTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Date" />
+
+        <EditText
+            android:id="@+id/lushiTestDateET"
+            style="@style/formEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:hint="Select date"
+            android:longClickable="false" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test date" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/lushiTestDateET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="false"
-        android:longClickable="false"
-        android:ems="10"
-        android:hint="select date" />
-
-    <Button
-        android:id="@+id/lushiAddTestBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="submit" />
-
+        <Button
+            android:id="@+id/lushiAddTestBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MyCustomTabText"
+            android:text="Add Test" />
+    </LinearLayout>
 </LinearLayout>

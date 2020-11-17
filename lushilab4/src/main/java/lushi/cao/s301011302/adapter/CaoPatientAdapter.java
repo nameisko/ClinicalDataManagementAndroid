@@ -1,8 +1,13 @@
 package lushi.cao.s301011302.adapter;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
@@ -10,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -61,16 +67,16 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
         gd.setCornerRadius(10);
         switch(patients.get(position).getDepartment()){
             case "Blood Lab":
-                gd.setColor(Color.parseColor("#f1d1d1"));
+                gd.setColor(ContextCompat.getColor(context, R.color.light_red));
                 break;
             case "Allergy":
-                gd.setColor(Color.parseColor("#bfdcae"));
+                gd.setColor(ContextCompat.getColor(context, R.color.bright_blue));
                 break;
             case "Nerosurgery":
-                gd.setColor(Color.parseColor("#d9e4dd"));
+                gd.setColor(ContextCompat.getColor(context, R.color.light_navy));
                 break;
             case "Orthopedic":
-                gd.setColor(Color.parseColor("#e9e2d0"));
+                gd.setColor(ContextCompat.getColor(context, R.color.light_brown));
         }
         holder.dept.setBackground(gd);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);

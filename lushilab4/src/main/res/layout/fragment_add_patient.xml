@@ -1,96 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addPatientLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     android:orientation="vertical"
-    android:id="@+id/addPatientLayout"
     tools:context=".fragment.LushiFragmentAddPatient">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="patient first" />
+        android:layout_height="match_parent"
+        android:layout_weight="0.1"
+        android:orientation="vertical"
+        android:padding="5dp">
 
-    <EditText
-        android:id="@+id/lushiPatientFirstET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="patient last name" />
-
-    <EditText
-        android:id="@+id/lushiPatientLastET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
-    <TextView
-        android:id="@+id/lushiPatientGenderTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gender" />
-
-    <RadioGroup
-        android:id="@+id/lushiPatientGenderRdGp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:id="@+id/lushiMaleRdBtn"
+        <TextView
+            android:id="@+id/lushiFirstNTV"
+            style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Male" />
+            android:text="First Name" />
 
-        <RadioButton
-            android:id="@+id/lushiFemaleRdBtn"
+        <EditText
+            android:id="@+id/lushiPatientFirstET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Female" />
-    </RadioGroup>
-    <TextView
-        android:id="@+id/lushiPatientAgeTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="patient age" />
+            android:ems="10" />
 
-    <EditText
-        android:id="@+id/lushiPatientAgeET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
+        <TextView
+            android:id="@+id/lushiLastNTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Name" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="patient room" />
+        <EditText
+            android:id="@+id/lushiPatientLastET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
 
-    <EditText
-        android:id="@+id/lushiPatientRoomET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="department" />
-    <Spinner
-        android:id="@+id/lushiDeptSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/lushiPatientGenderTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender" />
 
-    <Button
-        android:id="@+id/lushiAddPatientBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="add patient" />
+        <RadioGroup
+            android:id="@+id/lushiPatientGenderRdGp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <RadioButton
+                android:id="@+id/lushiMaleRdBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/lushiFemaleRdBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/lushiPatientAgeTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age" />
+
+        <EditText
+            android:id="@+id/lushiPatientAgeET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/lushiRoomRV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Room" />
+
+        <EditText
+            android:id="@+id/lushiPatientRoomET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/lushiDeptTV"
+            style="@style/formTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Department" />
+
+        <Spinner
+            android:id="@+id/lushiDeptSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/lushiAddPatientBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MyCustomTabText"
+                android:text="Add Patient" />
+        </LinearLayout>
 </LinearLayout>

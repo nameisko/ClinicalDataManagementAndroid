@@ -7,17 +7,24 @@
     tools:context=".fragment.LushiFragmentHome">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/lushiMainBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:background="@color/mid_blue"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/medicalbg" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal">
     <Button
         android:id="@+id/startbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start">
+        android:backgroundTint="@color/yellow"
+        android:textColor="@color/black"
+        android:text="Start Here">
     </Button>
-
+    </LinearLayout>
 
 </FrameLayout>

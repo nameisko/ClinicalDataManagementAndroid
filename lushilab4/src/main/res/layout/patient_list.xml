@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
+    android:divider="?android:dividerHorizontal"
+    android:showDividers="end"
     android:orientation="vertical">
+    <TableLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <TableRow
             android:stretchColumns="*"
             android:shrinkColumns="*">
@@ -25,15 +31,16 @@
                 android:id="@+id/lushiFullNameTV"
                 android:layout_weight="1"
                 android:layout_width="0dp"
+                style="@style/nameTextStyle"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/lushiPatientDeptTV"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </TableRow>
     <TableRow>
         <TextView
@@ -45,6 +52,7 @@
             android:id="@+id/lushiPatientGenderTV2"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </TableRow>
-</TableLayout>
+    </TableLayout>
+</LinearLayout>

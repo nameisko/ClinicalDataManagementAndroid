@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.fragment;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -45,6 +49,8 @@ public class LushiFragmentTestList extends Fragment {
     Patient patient;
     String info;
     LinearLayout layout;
+    Test deletedRecord = null;
+
     public LushiFragmentTestList() {
         // Required empty public constructor
     }
@@ -96,6 +102,7 @@ public class LushiFragmentTestList extends Fragment {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                deletedRecord = testAdapter.getTestAt(viewHolder.getAdapterPosition());
                 testViewModel.delete(testAdapter.getTestAt(viewHolder.getAdapterPosition()));
                 //Toast.makeText(getApplicationContext(),"test deleted",Toast.LENGTH_SHORT).show();
                 showSnackbar();

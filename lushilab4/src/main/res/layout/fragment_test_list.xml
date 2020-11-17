@@ -24,10 +24,9 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="0.2"
-        android:divider="?android:dividerHorizontal"
-        android:showDividers="beginning"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lushiTestRecyclerView"
             android:layout_width="match_parent"

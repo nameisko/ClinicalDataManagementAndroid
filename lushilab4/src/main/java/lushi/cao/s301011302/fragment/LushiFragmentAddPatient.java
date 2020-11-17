@@ -1,5 +1,9 @@
 package lushi.cao.s301011302.fragment;
-
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -158,7 +162,7 @@ public class LushiFragmentAddPatient extends Fragment {
         lastName = lastNameET.getText().toString().trim();;
         room = roomET.getText().toString().trim();
         age = ageET.getText().toString().trim();
-        String numRegex = "^\\+?[1-9]\\d*$";
+        String numRegex = "^\\d*[0-9]\\d*$";
         String nameRegex = "[a-zA-Z]{2,30}";
 
         if(!firstName.matches(nameRegex)){
@@ -171,7 +175,7 @@ public class LushiFragmentAddPatient extends Fragment {
             lastNameET.setError("Enter a valid last name");
             isValid = false;
         }
-        if(age.isEmpty() || age.matches(numRegex)){
+        if(!age.matches(numRegex)){
             ageET.requestFocus();
             ageET.setError("Enter valid age");
             isValid = false;
