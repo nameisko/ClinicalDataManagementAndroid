@@ -6,6 +6,7 @@ package lushi.cao.s301011302.fragment;
  */
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -72,6 +73,7 @@ public class LushiFragmentTestList extends Fragment {
         patientAdapter = new CaoPatientAdapter();
         patientAdapter.setView(root);
         patientAdapter.setContext(context);
+        testAdapter.setContext(context);
         recyclerView.setAdapter(testAdapter);
         recyclerView2.setAdapter(patientAdapter);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
@@ -93,7 +95,7 @@ public class LushiFragmentTestList extends Fragment {
         });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT){
+                ItemTouchHelper.LEFT){
 
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -112,7 +114,7 @@ public class LushiFragmentTestList extends Fragment {
         return root;
     }
     public void showSnackbar(){
-        Snackbar snackbar = Snackbar.make(layout, "Test record deleted",Snackbar.LENGTH_LONG)
+        Snackbar snackbar = Snackbar.make(layout, R.string.record_deleted,Snackbar.LENGTH_LONG)
                 .setActionTextColor(Color.parseColor("#f5b461"));
         snackbar.show();
     }

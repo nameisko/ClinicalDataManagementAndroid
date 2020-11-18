@@ -5,8 +5,6 @@ COMP304 SEC002
 -->
 <resources>
     <string name="app_name">LushiLab4</string>
-    <string name="navigation_draw_open">Open navigation drawer</string>
-    <string name="navigation_draw_close">Close navigation drawer</string>
     <string name="tab_text_1">My Patients</string>
     <string name="tab_text_2">All Patients</string>
     <string-array name="departments">
@@ -16,18 +14,43 @@ COMP304 SEC002
         <item>Orthopedic</item>
     </string-array>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="title_activity_main">MainActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="gender">Gender\u0020</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="patient_id">Patient ID\u0020</string>
+    <string name="age">Age\u0020</string>
+    <string name="room">Room\u0020</string>
+    <string name="department">Department</string>
+    <string name="add_patient">Add Patient</string>
+    <string name="select_patient">Select Patient</string>
+    <string name="blood_pressure">Blood Pressure</string>
+    <string name="enter_blood_pressure">Enter blood pressure</string>
+    <string name="respiratory_rate">Respiratory Rate</string>
+    <string name="enter_respiratory_rate_bpm">Enter respiratory rate (bpm)</string>
+    <string name="blood_oxygen_level">Blood Oxygen Level</string>
+    <string name="enter_blood_oxygen_level">Enter Blood Oxygen Level (%)</string>
+    <string name="heart_rate">Heart Rate</string>
+    <string name="enter_heart_rate_bpm">Enter heart rate (bpm)</string>
+    <string name="covid_19">COVID-19</string>
+    <string name="positive">Positive</string>
+    <string name="negative">Negative</string>
+    <string name="test_date">Test Date</string>
+    <string name="select_date">Select date</string>
+    <string name="add_test">Add Test</string>
+    <string name="start_here">Start Here</string>
+    <string name="search_patient_id">Search by patient ID</string>
+    <string name="enter_patient_id">Enter patient ID</string>
+    <string name="filter_by_department">Filter by Department</string>
+    <string name="enter_valid_fn">Enter a valid first name</string>
+    <string name="enter_valid_ln">Enter a valid last name</string>
+    <string name="enter_valid_age">Enter valid age</string>
+    <string name="nonempty_field">Field cannot be empty</string>
+    <string name="new_patient_added">New patient added:\u0020</string>
+    <string name="new_test_added">New test added for\u0020</string>
+    <string name="patient_not_exist">Patient does not exist, please re-enter</string>
+    <string name="record_deleted">Test record deleted</string>
+    <string name="swipe_delete">Swipe left to delete a record</string>
 </resources>

@@ -42,7 +42,7 @@
                 android:id="@+id/lushiBPTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Blood pressure:" />
+                android:text="@string/blood_pressure" />
 
             <TextView
                 android:id="@+id/lushiBPTV"
@@ -58,7 +58,7 @@
                 android:id="@+id/lushiRespTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Respiratory rate:"/>
+                android:text="@string/respiratory_rate"/>
 
             <TextView
                 android:id="@+id/lushiRespTV"
@@ -74,7 +74,7 @@
                 android:id="@+id/lushiOxygenTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Blood oxygen:"/>
+                android:text="@string/blood_oxygen_level"/>
 
             <TextView
                 android:id="@+id/lushiOxygenTV"
@@ -90,7 +90,7 @@
                 android:id="@+id/lushiHeartTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heart rate:"/>
+                android:text="@string/heart_rate"/>
 
             <TextView
                 android:id="@+id/lushiHeartTV"
@@ -106,7 +106,7 @@
                 android:id="@+id/lushiCovidTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Covid"/>
+                android:text="@string/covid_19"/>
 
             <TextView
                 android:id="@+id/lushiCovidTV"

@@ -21,7 +21,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Patient" />
+            android:text="@string/select_patient" />
 
         <Spinner
             android:id="@+id/lushiPatientSpinner"
@@ -34,14 +34,14 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Blood Pressure" />
+            android:text="@string/blood_pressure" />
 
         <EditText
             android:id="@+id/lushiBloodPressureET"
             style="@style/formEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter blood pressure"
+            android:hint="@string/enter_blood_pressure"
             android:inputType="textPersonName" />
 
         <TextView
@@ -49,14 +49,14 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Respiratory Rate" />
+            android:text="@string/respiratory_rate" />
 
         <EditText
             android:id="@+id/lushirespiratoryRateET"
             style="@style/formEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter respiratory rate (bpm)"
+            android:hint="@string/enter_respiratory_rate_bpm"
             android:inputType="textPersonName" />
 
         <TextView
@@ -64,14 +64,14 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Blood Oxygen Level" />
+            android:text="@string/blood_oxygen_level" />
 
         <EditText
             android:id="@+id/lushiBloodOxygenET"
             style="@style/formEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Blood Oxygen Level (%)"
+            android:hint="@string/enter_blood_oxygen_level"
             android:inputType="textPersonName" />
 
         <TextView
@@ -79,21 +79,21 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Heart Rate" />
+            android:text="@string/heart_rate" />
 
         <EditText
             android:id="@+id/lushiHeartRateET"
             style="@style/formEditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter heart rate (bpm)" />
+            android:hint="@string/enter_heart_rate_bpm" />
 
         <TextView
             android:id="@+id/lushiCovidTestTV"
             style="@style/formTextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="COVID-19" />
+            android:text="@string/covid_19" />
 
         <RadioGroup
             android:id="@+id/lushiCovidRadioGp"
@@ -106,13 +106,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Positive" />
+                android:text="@string/positive" />
 
             <RadioButton
                 android:id="@+id/lushiCovidNeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Negative" />
+                android:text="@string/negative" />
         </RadioGroup>
 
         <TextView
@@ -120,7 +120,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Test Date" />
+            android:text="@string/test_date" />
 
         <EditText
             android:id="@+id/lushiTestDateET"
@@ -128,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
-            android:hint="Select date"
+            android:hint="@string/select_date"
             android:longClickable="false" />
     </LinearLayout>
 
@@ -143,6 +143,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/MyCustomTabText"
-            android:text="Add Test" />
+            android:text="@string/add_test" />
     </LinearLayout>
 </LinearLayout>

@@ -26,7 +26,11 @@
         android:layout_weight="0.2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="@string/swipe_delete"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lushiTestRecyclerView"
             android:layout_width="match_parent"

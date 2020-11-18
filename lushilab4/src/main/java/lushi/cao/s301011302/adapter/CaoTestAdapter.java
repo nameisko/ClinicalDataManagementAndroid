@@ -4,6 +4,8 @@ package lushi.cao.s301011302.adapter;
  * 301011302
  * COMP304 SEC002
  */
+import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +23,7 @@ import lushi.cao.s301011302.model.Test;
 
 public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHolder> {
     private List<Test> tests =  new ArrayList<>();
-    private Patient patient;
+    Context context;
 
     @NonNull
     @Override
@@ -30,10 +32,14 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
         return new ViewHolder(view);
     }
 
+    public void setContext(Context c) {
+        context = c;
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String covidResult = tests.get(position).getCovid()?"Positive":"Negative";
-
+        Resources res = context.getResources();
+        String covidResult = tests.get(position).getCovid()?res.getString(R.string.positive):res.getString(R.string.negative);
         holder.bp.setText(String.valueOf(tests.get(position).getBloodPressure()));
         holder.respiratory.setText(tests.get(position).getRespiratoryRate());
         holder.oxygen.setText(tests.get(position).getBloodOxygen());
@@ -49,11 +55,6 @@ public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHold
 
     public Test getTestAt(int index){
         return tests.get(index);
-    }
-
-    public void setTestsAndPatient(List<Test> tests, Patient p){
-        this.tests = tests;
-        patient = p;
     }
 
     @Override

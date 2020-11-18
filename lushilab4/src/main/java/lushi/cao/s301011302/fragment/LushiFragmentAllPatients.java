@@ -32,7 +32,6 @@ public class LushiFragmentAllPatients extends Fragment {
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
-    private static final String ARG_SECTION_NUMBER = "section_number";
     RecyclerView recylcerView;
     CaoPatientAdapter adapter;
     PatientViewModel patientViewModel;

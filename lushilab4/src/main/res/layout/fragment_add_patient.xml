@@ -21,7 +21,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="First Name" />
+            android:text="@string/first_name" />
 
         <EditText
             android:id="@+id/lushiPatientFirstET"
@@ -34,7 +34,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Last Name" />
+            android:text="@string/last_name" />
 
         <EditText
             android:id="@+id/lushiPatientLastET"
@@ -47,7 +47,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gender" />
+            android:text="@string/gender" />
 
         <RadioGroup
             android:id="@+id/lushiPatientGenderRdGp"
@@ -60,13 +60,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Male" />
+                android:text="@string/male" />
 
             <RadioButton
                 android:id="@+id/lushiFemaleRdBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Female" />
+                android:text="@string/female" />
         </RadioGroup>
 
         <TextView
@@ -74,7 +74,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Age" />
+            android:text="@string/age" />
 
         <EditText
             android:id="@+id/lushiPatientAgeET"
@@ -87,7 +87,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Room" />
+            android:text="@string/room" />
 
         <EditText
             android:id="@+id/lushiPatientRoomET"
@@ -100,7 +100,7 @@
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Department" />
+            android:text="@string/department" />
 
         <Spinner
             android:id="@+id/lushiDeptSpinner"
@@ -117,6 +117,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/MyCustomTabText"
-                android:text="Add Patient" />
+                android:text="@string/add_patient" />
         </LinearLayout>
 </LinearLayout>

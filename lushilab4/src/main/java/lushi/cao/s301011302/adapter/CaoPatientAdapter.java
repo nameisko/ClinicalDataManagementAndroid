@@ -4,6 +4,7 @@ package lushi.cao.s301011302.adapter;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -20,6 +21,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,7 @@ import lushi.cao.s301011302.model.Patient;
 
 
 public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.ViewHolder> {
-    private List<Patient> patients =  new ArrayList<>();
+    private List<Patient> patients = new ArrayList<>();
     Patient patient;
     Context context;
     Activity activity;
@@ -39,33 +41,44 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     View view;
 
     @Override
-    public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.patient_list,parent,false);
+    public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.patient_list, parent, false);
         return new ViewHolder(view);
     }
 
-    public void setContext(Context c){
+    public void setContext(Context c) {
         context = c;
     }
 
-    public void setActivity(Activity a){activity = a;}
+    public void setActivity(Activity a) {
+        activity = a;
+    }
 
-    public void setFm(FragmentManager fm){this.fm =fm;}
+    public void setFm(FragmentManager fm) {
+        this.fm = fm;
+    }
 
-    public void setView(View v){view =v;}
+    public void setView(View v) {
+        view = v;
+    }
 
     @Override
-    public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position){
-        String name = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
-        holder.fullName.setText(name);
-        holder.patientId.setText("Health ID: #" + String.valueOf(patients.get(position).getPatientID()));
-        holder.room.setText("Room: #" + patients.get(position).getRoom());
+    public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position) {
+        Resources res = context.getResources();
+        String nameStr = patients.get(position).getFirstName() + patients.get(position).getLastName();
+        String patientIdStr = res.getString(R.string.patient_id) + String.valueOf(patients.get(position).getPatientID());
+        String roomStr = res.getString(R.string.room) + patients.get(position).getRoom();
+        String ageStr = res.getString(R.string.age) + patients.get(position).getAge();
+        String genderStr = res.getString(R.string.gender) + patients.get(position).getGender();
+        holder.fullName.setText(nameStr);
+        holder.patientId.setText(patientIdStr);
+        holder.room.setText(roomStr);
         holder.dept.setText(patients.get(position).getDepartment());
-        holder.age.setText("Age: "+patients.get(position).getAge());
-        holder.gender.setText("Gender: "+patients.get(position).getGender());
+        holder.age.setText(ageStr);
+        holder.gender.setText(genderStr);
         GradientDrawable gd = new GradientDrawable();
         gd.setCornerRadius(10);
-        switch(patients.get(position).getDepartment()){
+        switch (patients.get(position).getDepartment()) {
             case "Blood Lab":
                 gd.setColor(ContextCompat.getColor(context, R.color.light_red));
                 break;
@@ -93,28 +106,28 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
 //                fragmentTransaction.replace(R.id.action_viewInformationFragment_to_testListFragment,fg)
 //                        .addToBackStack(null)
 //                        .commit();
+                } catch (Exception ex) {
                 }
-                catch(Exception ex){}
             }
         });
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return patients.size();
     }
 
-    public void setPatients(List<Patient> patients){
+    public void setPatients(List<Patient> patients) {
         this.patients = patients;
         notifyDataSetChanged();
     }
 
-    public void setPatient(Patient patient){
+    public void setPatient(Patient patient) {
         this.patient = patient;
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView fullName;
         public TextView patientId;
         public TextView room;
@@ -122,7 +135,7 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
         public TextView age;
         public TextView gender;
 
-        public ViewHolder(View itemView){
+        public ViewHolder(View itemView) {
             super(itemView);
             fullName = itemView.findViewById(R.id.lushiFullNameTV);
             patientId = itemView.findViewById(R.id.lushiPatientIDTV);

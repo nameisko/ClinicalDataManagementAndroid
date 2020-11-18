@@ -86,7 +86,7 @@ public class LushiFragmentSearch extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
+//                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -144,7 +144,7 @@ public class LushiFragmentSearch extends Fragment {
                     }
                     else{
                         idET.requestFocus();
-                        idET.setError("Patient does not exist, please re-enter");
+                        idET.setError(getString(R.string.patient_not_exist));
                     }
                 });
             }

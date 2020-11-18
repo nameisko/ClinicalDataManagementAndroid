@@ -57,7 +57,6 @@ public class LushiFragmentAddTest extends Fragment {
     NavController navController;
     PatientViewModel patientViewModel;
     SharedPreferences sharedPref;
-    SharedPreferences.Editor sharedPrefEditor;
     ArrayList<String> patientNameList;
     EditText calenderET;
     Spinner spinner;
@@ -95,7 +94,6 @@ public class LushiFragmentAddTest extends Fragment {
         Context context = getActivity().getApplicationContext();
         view = root;
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        sharedPrefEditor = sharedPref.edit();
         radioGroup = root.findViewById(R.id.lushiCovidRadioGp);
         covidNegativeRadioBtn = root.findViewById(R.id.lushiCovidNeBtn);
         layout = root.findViewById(R.id.addTestLayout);
@@ -114,11 +112,7 @@ public class LushiFragmentAddTest extends Fragment {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == covidNegativeRadioBtn.getId()) {
-                    covid = false;
-                } else {
-                    covid = true;
-                }
+                covid = checkedId != covidNegativeRadioBtn.getId();
             }
         });
 
@@ -159,8 +153,9 @@ public class LushiFragmentAddTest extends Fragment {
                         try {
                             testDate = sdf.parse(formatedDate);
                         } catch (ParseException e) {
+                            //
                         }
-                        Toast.makeText(getContext(),"test date: "+formatedDate,Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(),"test date: "+formatedDate,Toast.LENGTH_SHORT).show();
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -194,13 +189,13 @@ public class LushiFragmentAddTest extends Fragment {
 
                 //String item = parent.getItemAtPosition(position).toString();
                 patientName = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + patientName.split(" ")[0], Toast.LENGTH_LONG).show();
+//                Toast.makeText(parent.getContext(), "Selected: " + patientName.split(" ")[0], Toast.LENGTH_LONG).show();
                 spinner.setSelection(position);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
+//                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
             }
         });
         return root;
@@ -234,27 +229,27 @@ public class LushiFragmentAddTest extends Fragment {
         date = dateET.getText().toString().trim();
         if(bp.isEmpty()){
             bpET.requestFocus();
-            bpET.setError("Field cannot be empty");
+            bpET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
         if(respiratory.isEmpty()){
             respiratoryET.requestFocus();
-            respiratoryET.setError("Field cannot be empty");
+            respiratoryET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
         if(oxygen.isEmpty()){
             oxygenET.requestFocus();
-            oxygenET.setError("Field cannot be empty");
+            oxygenET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
         if(heartRate.isEmpty()){
             heartRateET.requestFocus();
-            heartRateET.setError("Field cannot be empty");
+            heartRateET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
         if(date.isEmpty()){
             dateET.requestFocus();
-            dateET.setError("Please select a date");
+            dateET.setError(getString(R.string.select_date));
             isValid = false;
         }
         else{
@@ -264,8 +259,7 @@ public class LushiFragmentAddTest extends Fragment {
     }
 
     public void showSnackbar(String name){
-        Snackbar snackbar = Snackbar.make(layout, "New test added for "+name,Snackbar.LENGTH_LONG)
-                .setActionTextColor(Color.parseColor("#f5b461"));
+        Snackbar snackbar = Snackbar.make(layout, getString(R.string.new_test_added)+ name,Snackbar.LENGTH_LONG);
         snackbar.show();
     }
 }

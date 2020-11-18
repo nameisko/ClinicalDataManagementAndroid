@@ -1,0 +1,56 @@
+<!--
+Lushi Cao
+301011302
+COMP304 SEC002
+-->
+<resources>
+    <string name="app_name">LushiLab4</string>
+    <string name="tab_text_1">Mes patients</string>
+    <string name="tab_text_2">Tous les patients</string>
+    <string-array name="departments">
+        <item>Allergie</item>
+        <item>Laboratoire de sang</item>
+        <item>Neurochirurgie</item>
+        <item>Orthopédique</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom de famille</string>
+    <string name="gender">Le genre\u0020</string>
+    <string name="male">Mâle</string>
+    <string name="female">Femelle</string>
+    <string name="patient_id">ID du patient\u0020</string>
+    <string name="age">Âge\u0020</string>
+    <string name="room">Chambre\u0020</string>
+    <string name="department">Département</string>
+    <string name="add_patient">Ajouter un patient</string>
+    <string name="select_patient">Sélectionnez un patient</string>
+    <string name="blood_pressure">Pression artérielle</string>
+    <string name="enter_blood_pressure">Entrez la pression artérielle</string>
+    <string name="respiratory_rate">Fréquence respiratoire</string>
+    <string name="enter_respiratory_rate_bpm">Entrez la fréquence respiratoire (bpm)</string>
+    <string name="blood_oxygen_level">Niveau d\'oxygène dans le sang</string>
+    <string name="enter_blood_oxygen_level">Entrez le niveau d\'oxygène dans le sang (%)</string>
+    <string name="heart_rate">Rythme cardiaque</string>
+    <string name="enter_heart_rate_bpm">Entrer la fréquence cardiaque (bpm)</string>
+    <string name="covid_19">COVID-19</string>
+    <string name="positive">Positif</string>
+    <string name="negative">Négative</string>
+    <string name="test_date">Date du test</string>
+    <string name="select_date">Sélectionner une date</string>
+    <string name="add_test">Ajouter un test</string>
+    <string name="start_here">Commencer ici</string>
+    <string name="search_patient_id">Recherche par ID patient</string>
+    <string name="enter_patient_id">Entrez l\'ID du patient</string>
+    <string name="filter_by_department">Filtrer par département</string>
+    <string name="enter_valid_fn">Entrez un prénom valide</string>
+    <string name="enter_valid_ln">Entrez un nom de famille valide</string>
+    <string name="enter_valid_age">Entrez un âge valide</string>
+    <string name="nonempty_field">Le champ ne peut pas être vide</string>
+    <string name="new_patient_added">Nouveau patient ajouté:\u0020</string>
+    <string name="new_test_added">Nouveau test ajouté pour\u0020</string>
+    <string name="patient_not_exist">Le patient n\'existe pas, veuillez entrer à nouveau</string>
+    <string name="record_deleted">Enregistrement de test supprimé</string>
+    <string name="swipe_delete">Balayez vers la gauche pour supprimer un enregistrement</string>
+</resources>

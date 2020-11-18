@@ -7,6 +7,7 @@ package lushi.cao.s301011302.fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.content.res.Resources;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,20 +34,11 @@ import lushi.cao.s301011302.adapter.SectionsPagerAdapter;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
 public class LushiFragmentViewInformation extends Fragment {
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor sharedPrefEditor;
-    private static final String ARG_SECTION_NUMBER = "section_number";
-    RecyclerView recylcerView;
-    CaoPatientAdapter adapter;
-    PatientViewModel patientViewModel;
-    boolean newPatientSubmitted;
-    CoordinatorLayout layout;
     FragmentManager fragmentManager;
     FloatingActionButton addTestFab;
     FloatingActionButton addPatientFab;
     FloatingActionsMenu mainFab;
     NavController navController;
-    String department;
     SectionsPagerAdapter tabAdapter;
     ViewPager viewPager;
     @Override

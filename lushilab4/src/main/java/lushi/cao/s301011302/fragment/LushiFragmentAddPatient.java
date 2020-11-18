@@ -6,6 +6,7 @@ package lushi.cao.s301011302.fragment;
  */
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -62,6 +63,7 @@ public class LushiFragmentAddPatient extends Fragment {
     String deptStr;
     RadioGroup genderRdGp;
     RadioButton femaleRadioBtn;
+    RadioButton maleRadioBtn;
     LinearLayout layout;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
@@ -83,7 +85,7 @@ public class LushiFragmentAddPatient extends Fragment {
         departments = getResources().getStringArray(R.array.departments);
         genderRdGp = root.findViewById(R.id.lushiPatientGenderRdGp);
         femaleRadioBtn = root.findViewById(R.id.lushiFemaleRdBtn);
-
+        maleRadioBtn = root.findViewById(R.id.lushiMaleRdBtn);
         spinner = root.findViewById(R.id.lushiDeptSpinner);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
                 context, android.R.layout.simple_spinner_item, departments);
@@ -104,13 +106,16 @@ public class LushiFragmentAddPatient extends Fragment {
             }
         });
 
+        if(maleRadioBtn.isChecked()){
+            gender = getString(R.string.male);
+        }
         genderRdGp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == femaleRadioBtn.getId()) {
-                    gender = "Female";
-                } else {
-                    gender = "Male";
+                    gender = getString(R.string.female);
+                } else if(checkedId == maleRadioBtn.getId()){
+                    gender = getString(R.string.male);
                 }
             }
         });
@@ -167,22 +172,22 @@ public class LushiFragmentAddPatient extends Fragment {
 
         if(!firstName.matches(nameRegex)){
             firstNameET.requestFocus();
-            firstNameET.setError("Enter a valid first name");
+            firstNameET.setError(getString(R.string.enter_valid_fn));
             isValid = false;
         }
         if(!lastName.matches(nameRegex)){
             lastNameET.requestFocus();
-            lastNameET.setError("Enter a valid last name");
+            lastNameET.setError(getString(R.string.enter_valid_ln));
             isValid = false;
         }
         if(!age.matches(numRegex)){
             ageET.requestFocus();
-            ageET.setError("Enter valid age");
+            ageET.setError(getString(R.string.enter_valid_age));
             isValid = false;
         }
         if(room.isEmpty()){
             roomET.requestFocus();
-            roomET.setError("Field cannot be empty");
+            roomET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
         if(deptStr.isEmpty()){
@@ -191,8 +196,7 @@ public class LushiFragmentAddPatient extends Fragment {
         return isValid;
     }
     public void showSnackbar(String patientName){
-        Snackbar snackbar = Snackbar.make(layout, patientName+ " Added",Snackbar.LENGTH_LONG)
-                .setActionTextColor(Color.parseColor("#f5b461"));
+        Snackbar snackbar = Snackbar.make(layout, getString(R.string.new_patient_added)+patientName,Snackbar.LENGTH_LONG);
         snackbar.show();
     }
 }

@@ -15,6 +15,7 @@ import androidx.room.TypeConverters;
 import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -70,19 +71,19 @@ public abstract class AppDatabase extends RoomDatabase {
             patientDao.insert(new Patient(4,"Justin", "Biber", "318A","Orthopedic","Male","26"));
             patientDao.insert(new Patient(4,"Hillary", "Clinton", "318A","Allergy","Female","73"));
 
-            Date date = new Date();
+            Calendar calendar = Calendar.getInstance();
+            Date date =  calendar.getTime();
             testDao.insert(new Test(1, "100","14","85%","104",true,date));
             testDao.insert(new Test(1, "100","16","95%","90",false,date));
 
-//            testDao.insert(new Test(2, "90","20","90%","120",false,"10/13/2020"));
-//            testDao.insert(new Test(2, "92","19","95%","110",false,"10/14/2020"));
-//
-//
-//            testDao.insert(new Test(3, "110","19","86%","112",true,"11/13/2020"));
-//            testDao.insert(new Test(3, "89","18","90%","100",false,"11/28/2020"));
-//
-//            testDao.insert(new Test(4, "120","19","88%","90",true,"11/11/2020"));
-//            testDao.insert(new Test(4, "90","18","92%","100",false,"11/15/2020"));
+            testDao.insert(new Test(2, "90","20","90%","120",false,date));
+            testDao.insert(new Test(2, "92","19","95%","110",false,date));
+
+            testDao.insert(new Test(3, "110","19","86%","112",true,date));
+            testDao.insert(new Test(3, "89","18","90%","100",false,date));
+
+            testDao.insert(new Test(4, "120","19","88%","90",true,date));
+            testDao.insert(new Test(4, "90","18","92%","100",false,date));
             return null;
         }
     }
