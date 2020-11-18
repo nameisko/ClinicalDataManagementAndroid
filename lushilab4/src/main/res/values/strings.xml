@@ -53,4 +53,11 @@ COMP304 SEC002
     <string name="patient_not_exist">Patient does not exist, please re-enter</string>
     <string name="record_deleted">Test record deleted</string>
     <string name="swipe_delete">Swipe left to delete a record</string>
+    <string name="home_intro">eHealth Clinic is responding to COVID-19 by taking temporary measures to protect the safety of our patients, family members, and staff, and finding new ways to support our community. </string>
+    <string name="covid_19_information">\u0020COVID-19 INFORMATION</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_age">Enter age</string>
+    <string name="enter_room">Enter room</string>
+    <string name="blood_oxygen">Blood Oxygen</string>
 </resources>

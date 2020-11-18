@@ -53,4 +53,6 @@ COMP304 SEC002
     <string name="patient_not_exist">Le patient n\'existe pas, veuillez entrer à nouveau</string>
     <string name="record_deleted">Enregistrement de test supprimé</string>
     <string name="swipe_delete">Balayez vers la gauche pour supprimer un enregistrement</string>
+    <string name="home_intro">eHealth répond au COVID-19 en prenant des mesures temporaires pour protéger la sécurité de nos patients, des membres de leur famille et du personnel, et en trouvant de nouvelles façons de soutenir notre communauté.</string>
+    <string name="covid_19_information">\u0020INFORMATIONS SUR LE COVID-19</string>
 </resources>

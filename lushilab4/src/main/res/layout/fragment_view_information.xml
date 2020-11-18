@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/patientLayout"
+    android:background="@color/pale_green"
     tools:context=".fragment.LushiFragmentViewInformation">
 
     <androidx.recyclerview.widget.RecyclerView

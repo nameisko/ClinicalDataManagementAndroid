@@ -4,6 +4,7 @@ package lushi.cao.s301011302.fragment;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -64,7 +65,7 @@ public class LushiFragmentTestList extends Fragment {
         Context context = getActivity().getApplicationContext();
         layout = root.findViewById(R.id.testLayout);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
-        patientID = sharedPref.getInt("patientId",0);
+        patientID = sharedPref.getInt("patientId", 0);
         recyclerView = root.findViewById(R.id.lushiTestRecyclerView);
         recyclerView2 = root.findViewById(R.id.lushiTestPatientInfoRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -95,7 +96,7 @@ public class LushiFragmentTestList extends Fragment {
         });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-                ItemTouchHelper.LEFT){
+                ItemTouchHelper.LEFT) {
 
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -113,8 +114,9 @@ public class LushiFragmentTestList extends Fragment {
 
         return root;
     }
-    public void showSnackbar(){
-        Snackbar snackbar = Snackbar.make(layout, R.string.record_deleted,Snackbar.LENGTH_LONG)
+
+    public void showSnackbar() {
+        Snackbar snackbar = Snackbar.make(layout, R.string.record_deleted, Snackbar.LENGTH_LONG)
                 .setActionTextColor(Color.parseColor("#f5b461"));
         snackbar.show();
     }

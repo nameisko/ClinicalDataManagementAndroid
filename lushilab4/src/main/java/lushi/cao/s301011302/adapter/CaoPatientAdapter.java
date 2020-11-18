@@ -65,7 +65,7 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     @Override
     public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position) {
         Resources res = context.getResources();
-        String nameStr = patients.get(position).getFirstName() + patients.get(position).getLastName();
+        String nameStr = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
         String patientIdStr = res.getString(R.string.patient_id) + String.valueOf(patients.get(position).getPatientID());
         String roomStr = res.getString(R.string.room) + patients.get(position).getRoom();
         String ageStr = res.getString(R.string.age) + patients.get(position).getAge();
@@ -83,10 +83,10 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
                 gd.setColor(ContextCompat.getColor(context, R.color.light_red));
                 break;
             case "Allergy":
-                gd.setColor(ContextCompat.getColor(context, R.color.bright_blue));
+                gd.setColor(ContextCompat.getColor(context, R.color.light_blue));
                 break;
             case "Nerosurgery":
-                gd.setColor(ContextCompat.getColor(context, R.color.light_navy));
+                gd.setColor(ContextCompat.getColor(context, R.color.light_green));
                 break;
             case "Orthopedic":
                 gd.setColor(ContextCompat.getColor(context, R.color.light_brown));

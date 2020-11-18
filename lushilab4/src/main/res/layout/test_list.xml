@@ -26,10 +26,11 @@
                 android:id="@+id/lushiDateTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Test date:" />
+                android:text="@string/test_date" />
 
             <TextView
                 android:id="@+id/lushiDateTV"
+                android:paddingLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -43,9 +44,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/blood_pressure" />
-
             <TextView
                 android:id="@+id/lushiBPTV"
+                android:paddingLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -62,6 +63,7 @@
 
             <TextView
                 android:id="@+id/lushiRespTV"
+                android:paddingLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -74,10 +76,11 @@
                 android:id="@+id/lushiOxygenTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/blood_oxygen_level"/>
+                android:text="@string/blood_oxygen"/>
 
             <TextView
                 android:id="@+id/lushiOxygenTV"
+                android:paddingLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </TableRow>
@@ -95,6 +98,7 @@
             <TextView
                 android:id="@+id/lushiHeartTV"
                 android:layout_width="match_parent"
+                android:paddingLeft="5dp"
                 android:layout_height="wrap_content" />
         </TableRow>
 
@@ -111,6 +115,7 @@
             <TextView
                 android:id="@+id/lushiCovidTV"
                 android:layout_width="match_parent"
+                android:paddingLeft="5dp"
                 android:layout_height="wrap_content" />
         </TableRow>
     </TableLayout>

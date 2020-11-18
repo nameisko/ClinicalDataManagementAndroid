@@ -4,6 +4,6 @@
         android:id="@+id/searchFragment"
         android:orderInCategory="100"
         android:title="Search"
-        android:icon="@drawable/searchicon"
+        android:icon="@drawable/search"
         app:showAsAction="always" />
 </menu>

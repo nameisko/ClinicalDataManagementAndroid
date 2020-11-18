@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pale_green"
     tools:context=".fragment.LushiFragmentViewInformation">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,6 +22,8 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
@@ -40,11 +44,10 @@
             android:id="@+id/lushiAddPatientFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/blue"
-            app:fab_colorPressed="@color/mid_blue"
+            app:fab_colorNormal="@color/light_green"
             app:fab_size="mini"
             app:fab_title="Add Patient"
-            app:fab_icon="@drawable/test">
+            app:fab_icon="@drawable/person">
         </com.getbase.floatingactionbutton.FloatingActionButton>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -52,7 +55,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/blue"
-            app:fab_colorPressed="@color/mid_blue"
             app:fab_size="mini"
             app:fab_title="Add Test"
             app:fab_icon="@drawable/test">

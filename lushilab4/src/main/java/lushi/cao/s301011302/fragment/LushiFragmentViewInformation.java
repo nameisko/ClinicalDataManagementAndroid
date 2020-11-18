@@ -5,19 +5,14 @@ package lushi.cao.s301011302.fragment;
  * COMP304 SEC002
  */
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.content.res.Resources;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -29,9 +24,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.tabs.TabLayout;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.adapter.CaoPatientAdapter;
-import lushi.cao.s301011302.adapter.SectionsPagerAdapter;
-import lushi.cao.s301011302.viewmodel.PatientViewModel;
+import lushi.cao.s301011302.adapter.CaoSectionsPagerAdapter;
 
 public class LushiFragmentViewInformation extends Fragment {
     FragmentManager fragmentManager;
@@ -39,7 +32,7 @@ public class LushiFragmentViewInformation extends Fragment {
     FloatingActionButton addPatientFab;
     FloatingActionsMenu mainFab;
     NavController navController;
-    SectionsPagerAdapter tabAdapter;
+    CaoSectionsPagerAdapter tabAdapter;
     ViewPager viewPager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,7 +43,7 @@ public class LushiFragmentViewInformation extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_patient_list, container, false);
         Context context = getActivity().getApplicationContext();
-        tabAdapter = new SectionsPagerAdapter(context, getChildFragmentManager());
+        tabAdapter = new CaoSectionsPagerAdapter(context, getChildFragmentManager());
         viewPager= root.findViewById(R.id.view_pager);
         viewPager.setAdapter(tabAdapter);
         TabLayout tabs = root.findViewById(R.id.tabs);

@@ -4,6 +4,7 @@ package lushi.cao.s301011302.fragment;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ public class LushiFragmentSearch extends Fragment {
     Button searchByDeptBtn;
     EditText idET;
     Integer id;
+    String idStr;
     Spinner spinner;
     String departments[];
     String deptStr;
@@ -66,11 +68,11 @@ public class LushiFragmentSearch extends Fragment {
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         sharedPrefEditor = sharedPref.edit();
         layout = root.findViewById(R.id.searchLayout);
-        idET = root.findViewById(R.id.lushiSearchByIdET);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         departments = getResources().getStringArray(R.array.departments);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        idET = root.findViewById(R.id.lushiSearchByIdET);
         spinner = root.findViewById(R.id.lushiSearchDeptSpinner);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(
                 context, android.R.layout.simple_spinner_item, departments);
@@ -135,18 +137,19 @@ public class LushiFragmentSearch extends Fragment {
         searchByIdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                id = Integer.parseInt(idET.getText().toString());
-                patientViewModel.getSpecificPatient(id).observe(getActivity(), results -> {
-                    if (results.size() != 0) {
-                        sharedPrefEditor.putInt("patientId", id);
-                        sharedPrefEditor.apply();
-                        navController.navigate(R.id.testListFragment);
-                    }
-                    else{
-                        idET.requestFocus();
-                        idET.setError(getString(R.string.patient_not_exist));
-                    }
-                });
+                if (validateInfo()) {
+                    id = Integer.parseInt(idET.getText().toString());
+                    patientViewModel.getSpecificPatient(id).observe(getActivity(), results -> {
+                        if (results.size() != 0) {
+                            sharedPrefEditor.putInt("patientId", id);
+                            sharedPrefEditor.apply();
+                            navController.navigate(R.id.testListFragment);
+                        } else {
+                            idET.requestFocus();
+                            idET.setError(getString(R.string.patient_not_exist));
+                        }
+                    });
+                }
             }
         });
         searchByDeptBtn = view.findViewById(R.id.searchByDeptBtn);
@@ -158,5 +161,17 @@ public class LushiFragmentSearch extends Fragment {
                 navController.navigate(R.id.allPatientFragment);
             }
         });
+    }
+
+    public boolean validateInfo() {
+        boolean isValid = true;
+        String numRegex = "^\\d*[1-9]\\d*$";
+        idStr = idET.getText().toString();
+        if (idStr.isEmpty() || !idStr.matches(numRegex)) {
+            isValid = false;
+            idET.requestFocus();
+            idET.setError("Invalid input, try again");
+        }
+        return isValid;
     }
 }

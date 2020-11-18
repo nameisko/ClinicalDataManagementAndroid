@@ -79,6 +79,7 @@ public class LushiFragmentAddTest extends Fragment {
     boolean covid;
     RadioGroup radioGroup;
     RadioButton covidNegativeRadioBtn;
+    RadioButton covidPositiveRadioBtn;
     ArrayAdapter<String> dataAdapter;
     View view;
     LinearLayout layout;
@@ -96,6 +97,7 @@ public class LushiFragmentAddTest extends Fragment {
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         radioGroup = root.findViewById(R.id.lushiCovidRadioGp);
         covidNegativeRadioBtn = root.findViewById(R.id.lushiCovidNeBtn);
+        covidPositiveRadioBtn = root.findViewById(R.id.lushiCovidPoBtn);
         layout = root.findViewById(R.id.addTestLayout);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
@@ -106,8 +108,11 @@ public class LushiFragmentAddTest extends Fragment {
         bpET = root.findViewById(R.id.lushiBloodPressureET);
         dateET = root.findViewById(R.id.lushiTestDateET);
         calenderET = root.findViewById(R.id.lushiTestDateET);
-
         adapter = new CaoTestAdapter();
+
+        if(covidPositiveRadioBtn.isChecked()){
+            covid = true;
+        }
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

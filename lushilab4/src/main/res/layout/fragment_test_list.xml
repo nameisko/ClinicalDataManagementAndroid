@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/pale_purple"
     android:id="@+id/testLayout"
     android:layout_weight="1"
     tools:context=".fragment.LushiFragmentTestList">
     <LinearLayout
         android:orientation="vertical"
-        android:layout_weight="0.75"
-
+        android:layout_weight="0.70"
+        android:divider="?android:dividerHorizontal"
+        android:showDividers="end"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView

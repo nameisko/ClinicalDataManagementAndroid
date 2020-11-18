@@ -4,6 +4,7 @@
     android:id="@+id/addPatientLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pale_pink"
     android:layout_weight="1"
     android:orientation="vertical"
     tools:context=".fragment.LushiFragmentAddPatient">
@@ -18,6 +19,7 @@
 
         <TextView
             android:id="@+id/lushiFirstNTV"
+            android:paddingTop="20dp"
             style="@style/formTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,6 +29,8 @@
             android:id="@+id/lushiPatientFirstET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/formEditTextStyle"
+            android:hint="@string/enter_first_name"
             android:ems="10" />
 
         <TextView
@@ -39,7 +43,9 @@
         <EditText
             android:id="@+id/lushiPatientLastET"
             android:layout_width="match_parent"
+            style="@style/formEditTextStyle"
             android:layout_height="wrap_content"
+            android:hint="@string/enter_last_name"
             android:ems="10" />
 
         <TextView
@@ -80,6 +86,8 @@
             android:id="@+id/lushiPatientAgeET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/formEditTextStyle"
+            android:hint="@string/enter_age"
             android:ems="10" />
 
         <TextView
@@ -93,6 +101,8 @@
             android:id="@+id/lushiPatientRoomET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/formEditTextStyle"
+            android:hint="@string/enter_room"
             android:ems="10" />
 
         <TextView
@@ -111,12 +121,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.9"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:orientation="vertical">
             <Button
                 android:id="@+id/lushiAddPatientBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/MyCustomTabText"
+                style="@style/buttonStyle"
                 android:text="@string/add_patient" />
         </LinearLayout>
 </LinearLayout>

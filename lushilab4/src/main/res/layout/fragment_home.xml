@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mid_blue"
+    android:background="@color/pale_grey"
     tools:context=".fragment.LushiFragmentHome">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,19 +12,47 @@
         android:id="@+id/lushiMainBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/doctor" />
+        android:src="@drawable/ic_doctor" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
         android:gravity="center_vertical|center_horizontal">
-    <Button
-        android:id="@+id/startbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/yellow"
-        android:textColor="@color/black"
-        android:text="@string/start_here">
-    </Button>
+        <Button
+            android:id="@+id/startbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/buttonStyle"
+            android:text="@string/start_here">
+        </Button>
+        <RelativeLayout
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src ="@drawable/ic_alert"
+                android:id="@+id/lushiAlertIV"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/lushiAlertTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/covid_19_information"
+                android:layout_toEndOf="@+id/lushiAlertIV"
+                android:layout_toRightOf="@+id/lushiAlertIV"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/lushiAlertTV2"
+            android:layout_below="@id/lushiAlertIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_intro">
+        </TextView>
     </LinearLayout>
 
 </FrameLayout>

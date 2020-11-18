@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="MyCustomTabText" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/open_sans_semibold</item>
     </style>
 
@@ -23,5 +23,12 @@
     </style>
     <style name = "formTextViewStyle">
         <item name ="android:textSize">16sp</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:backgroundTint">@color/yellow</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
     </style>
 </resources>

@@ -4,11 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/pale_blue"
+    android:layout_weight="1"
     android:id="@+id/searchLayout"
     tools:context=".fragment.LushiFragmentSearch">
 
     <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
@@ -26,9 +32,10 @@
         android:id="@+id/lushiSearchByIdBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/buttonStyle"
         android:text="@string/search_patient_id" />
-
     <TextView
+        android:paddingTop="40dp"
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +50,7 @@
         android:id="@+id/searchByDeptBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/buttonStyle"
         android:text="@string/filter_by_department" />
-
+    </LinearLayout>
 </LinearLayout>
