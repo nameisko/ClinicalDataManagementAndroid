@@ -4,6 +4,7 @@ package lushi.cao.s301011302.data;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.app.Application;
 import android.os.AsyncTask;
 
@@ -20,41 +21,43 @@ public class PatientRepository {
     private LiveData<List<Patient>> myPatients;
     private LiveData<Patient> patient;
 
-    public PatientRepository(Application application){
+    public PatientRepository(Application application) {
         AppDatabase db = AppDatabase.getInstance(application);
         patientDao = db.patientDao();
         allPatients = patientDao.getAllPatients();
         myPatients = patientDao.getMyPatients();
     }
 
-    public void insert(Patient patient){
+    public void insert(Patient patient) {
 
         new InsertPatientAsyncTask(patientDao).execute(patient);
     }
 
-    public LiveData<List<Patient>> getSpecificPatient(int id){
+    public LiveData<List<Patient>> getSpecificPatient(int id) {
         return patientDao.getPatient(id);
     }
 
-    public LiveData<List<Patient>> getAllPatients(){
+    public LiveData<List<Patient>> getAllPatients() {
         return allPatients;
     }
 
-    public LiveData<List<Patient>> getMyPatients(){
+    public LiveData<List<Patient>> getMyPatients() {
         return myPatients;
     }
 
-    public LiveData<List<Patient>> getPatientsByDept(String dept){return patientDao.getPatientsByDept(dept);}
+    public LiveData<List<Patient>> getPatientsByDept(String dept) {
+        return patientDao.getPatientsByDept(dept);
+    }
 
-    private static class InsertPatientAsyncTask extends AsyncTask<Patient, Void, Void>{
+    private static class InsertPatientAsyncTask extends AsyncTask<Patient, Void, Void> {
         private PatientDao patientDao;
 
-        private InsertPatientAsyncTask(PatientDao dao){
+        private InsertPatientAsyncTask(PatientDao dao) {
             patientDao = dao;
         }
 
         @Override
-        protected Void doInBackground(Patient... patients){
+        protected Void doInBackground(Patient... patients) {
             patientDao.insert(patients[0]);
             return null;
         }

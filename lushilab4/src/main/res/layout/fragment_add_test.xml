@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/addTestLayout"
+    android:id="@+id/lushiAddTestLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pale_brown"
     android:layout_weight="1"
+    android:background="@color/pale_brown"
     android:orientation="vertical"
     tools:context=".fragment.LushiFragmentAddTest">
 
@@ -20,9 +20,9 @@
         <TextView
             android:id="@+id/lushiPatientNameTV"
             style="@style/formTextViewStyle"
-            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="20dp"
             android:text="@string/select_patient" />
 
         <Spinner
@@ -138,15 +138,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="0.9"
+        android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:orientation="vertical">
+        android:paddingRight="20dp">
 
         <Button
             android:id="@+id/lushiAddTestBtn"
+            style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/buttonStyle"
             android:text="@string/add_test" />
     </LinearLayout>
 </LinearLayout>

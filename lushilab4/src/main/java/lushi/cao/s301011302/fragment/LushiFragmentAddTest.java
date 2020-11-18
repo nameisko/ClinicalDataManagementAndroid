@@ -4,6 +4,7 @@ package lushi.cao.s301011302.fragment;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -98,7 +99,7 @@ public class LushiFragmentAddTest extends Fragment {
         radioGroup = root.findViewById(R.id.lushiCovidRadioGp);
         covidNegativeRadioBtn = root.findViewById(R.id.lushiCovidNeBtn);
         covidPositiveRadioBtn = root.findViewById(R.id.lushiCovidPoBtn);
-        layout = root.findViewById(R.id.addTestLayout);
+        layout = root.findViewById(R.id.lushiAddTestLayout);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         spinner = root.findViewById(R.id.lushiPatientSpinner);
@@ -110,7 +111,7 @@ public class LushiFragmentAddTest extends Fragment {
         calenderET = root.findViewById(R.id.lushiTestDateET);
         adapter = new CaoTestAdapter();
 
-        if(covidPositiveRadioBtn.isChecked()){
+        if (covidPositiveRadioBtn.isChecked()) {
             covid = true;
         }
 
@@ -149,7 +150,7 @@ public class LushiFragmentAddTest extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        int correctMonth = month+1;
+                        int correctMonth = month + 1;
                         String dateText = year + "/" + correctMonth + "/" + dayOfMonth;
                         calenderET.setText(dateText);
                         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -212,11 +213,11 @@ public class LushiFragmentAddTest extends Fragment {
         addTestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateTestInfo()){
+                if (validateTestInfo()) {
                     patientID = Integer.parseInt(patientName.split(" ")[0]);
                     testViewModel.insert(new Test(patientID, bp,
-                            respiratory,oxygen,heartRate, covid, testDate));
-                    String fName = patientName.split(" ")[1] +" "+ patientName.split(" ")[2];
+                            respiratory, oxygen, heartRate, covid, testDate));
+                    String fName = patientName.split(" ")[1] + " " + patientName.split(" ")[2];
                     showSnackbar(fName);
                     navController = Navigation.findNavController(view);
                     navController.navigateUp();
@@ -225,46 +226,45 @@ public class LushiFragmentAddTest extends Fragment {
         });
     }
 
-    public boolean validateTestInfo(){
+    public boolean validateTestInfo() {
         boolean isValid = true;
         bp = bpET.getText().toString();
         respiratory = respiratoryET.getText().toString().trim();
         oxygen = respiratoryET.getText().toString().trim();
         heartRate = heartRateET.getText().toString().trim();
         date = dateET.getText().toString().trim();
-        if(bp.isEmpty()){
+        if (bp.isEmpty()) {
             bpET.requestFocus();
             bpET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
-        if(respiratory.isEmpty()){
+        if (respiratory.isEmpty()) {
             respiratoryET.requestFocus();
             respiratoryET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
-        if(oxygen.isEmpty()){
+        if (oxygen.isEmpty()) {
             oxygenET.requestFocus();
             oxygenET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
-        if(heartRate.isEmpty()){
+        if (heartRate.isEmpty()) {
             heartRateET.requestFocus();
             heartRateET.setError(getString(R.string.nonempty_field));
             isValid = false;
         }
-        if(date.isEmpty()){
+        if (date.isEmpty()) {
             dateET.requestFocus();
             dateET.setError(getString(R.string.select_date));
             isValid = false;
-        }
-        else{
+        } else {
             dateET.setError(null);
         }
         return isValid;
     }
 
-    public void showSnackbar(String name){
-        Snackbar snackbar = Snackbar.make(layout, getString(R.string.new_test_added)+ name,Snackbar.LENGTH_LONG);
+    public void showSnackbar(String name) {
+        Snackbar snackbar = Snackbar.make(layout, getString(R.string.new_test_added) + name, Snackbar.LENGTH_LONG);
         snackbar.show();
     }
 }

@@ -4,6 +4,7 @@ package lushi.cao.s301011302.model;
  * 301011302
  * COMP304 SEC002
  */
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -36,7 +37,8 @@ public class Patient {
     @ColumnInfo(name = "gender")
     private String gender;
 
-    public Patient(){}
+    public Patient() {
+    }
 
     public Patient(int docId, String first, String last, String r, String dept, String g, String a) {
         this.doctorID = docId;
@@ -58,27 +60,67 @@ public class Patient {
         department = dept;
     }
 
-    public int getPatientID(){return patientID;}
-    public void setPatientID(int id){patientID = id;}
+    public int getPatientID() {
+        return patientID;
+    }
 
-    public int getDoctorID(){return doctorID;}
-    public void setDoctorID(int id){doctorID = id;}
+    public void setPatientID(int id) {
+        patientID = id;
+    }
 
-    public String getFirstName(){return firstName;}
-    public void setFirstName(String first){ firstName = first;}
+    public int getDoctorID() {
+        return doctorID;
+    }
 
-    public String getLastName(){return lastName;}
-    public void setLastName(String last){lastName = last;}
+    public void setDoctorID(int id) {
+        doctorID = id;
+    }
 
-    public String getRoom(){return room;}
-    public void setRoom(String r){room = r;}
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public String getDepartment(){return department;}
-    public void setDepartment(String dept){department = dept;}
+    public void setFirstName(String first) {
+        firstName = first;
+    }
 
-    public String getAge(){return age;}
-    public void setAge(String a){age = a;}
+    public String getLastName() {
+        return lastName;
+    }
 
-    public String getGender(){return gender;}
-    public void setGender(String g){gender = g;}
+    public void setLastName(String last) {
+        lastName = last;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String r) {
+        room = r;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String dept) {
+        department = dept;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String a) {
+        age = a;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String g) {
+        gender = g;
+    }
 }

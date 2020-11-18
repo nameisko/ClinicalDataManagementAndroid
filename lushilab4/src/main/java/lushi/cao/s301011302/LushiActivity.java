@@ -4,6 +4,7 @@ package lushi.cao.s301011302;
  * 301011302
  * COMP304 SEC002
  */
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
@@ -28,12 +29,6 @@ import lushi.cao.s301011302.fragment.LushiFragmentSearch;
 import static androidx.navigation.ui.NavigationUI.onNavDestinationSelected;
 
 public class LushiActivity extends AppCompatActivity {
-    FloatingActionButton addTestFab;
-    FloatingActionButton addPatientFab;
-    FloatingActionsMenu mainFab;
-    CoordinatorLayout layout;
-    View view;
-    LinearLayout linearLayout;
     FragmentManager fm;
     Fragment currentFragment;
     NavController navController;
@@ -42,8 +37,8 @@ public class LushiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        currentFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        currentFragment = getSupportFragmentManager().findFragmentById(R.id.lushi_nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.lushi_nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController);
         fm = getSupportFragmentManager();
 
@@ -84,8 +79,8 @@ public class LushiActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case DialogInterface.BUTTON_POSITIVE:
-                        // This above line close correctly
                         finish();
+                        // This above line close correctly
                         break;
 
                     case DialogInterface.BUTTON_NEGATIVE:
@@ -94,9 +89,10 @@ public class LushiActivity extends AppCompatActivity {
             }
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        String exitMsg = "exit the app?";
+        String exitMsg = "Are you sure you want to exit the app?";
         builder.setMessage(exitMsg)
-                .setTitle("Lushi Cao s301011302")
+                .setIcon(R.drawable.exitapp)
+                .setTitle("Exit")
                 .setPositiveButton("Yes", dlgListener)
                 .setNegativeButton("No", dlgListener).show();
     }

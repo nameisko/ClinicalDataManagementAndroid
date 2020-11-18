@@ -4,6 +4,7 @@ package lushi.cao.s301011302.adapter;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.content.Context;
 
 import androidx.annotation.Nullable;
@@ -37,7 +38,7 @@ public class CaoSectionsPagerAdapter extends FragmentStatePagerAdapter {
         // Return a PlaceholderFragment (defined as a static inner class below).
         //return PlaceholderFragment.newInstance(position + 1);
         Fragment fragment = null;
-        switch(position){
+        switch (position) {
             case 0:
                 return fragment = new LushiFragmentMyPatients();
             case 1:

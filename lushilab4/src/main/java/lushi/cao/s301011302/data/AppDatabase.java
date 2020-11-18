@@ -4,6 +4,7 @@ package lushi.cao.s301011302.data;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -29,7 +30,9 @@ import lushi.cao.s301011302.model.Test;
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
     private static final String DATABASE_NAME = "appdb";
+
     public abstract PatientDao patientDao();
+
     public abstract TestDao testDao();
 
     public synchronized static AppDatabase getInstance(Context context) {
@@ -54,36 +57,36 @@ public abstract class AppDatabase extends RoomDatabase {
                 .build();
     }
 
-    private static class PrepopulateAsyncTask extends AsyncTask<Void, Void, Void>{
+    private static class PrepopulateAsyncTask extends AsyncTask<Void, Void, Void> {
         private PatientDao patientDao;
         private TestDao testDao;
 
-        private PrepopulateAsyncTask(AppDatabase db){
+        private PrepopulateAsyncTask(AppDatabase db) {
             patientDao = db.patientDao();
             testDao = db.testDao();
         }
 
         @Override
-        protected Void doInBackground(Void... voids){
-            patientDao.insert(new Patient(2,"Donald", "Trump", "111A","Blood Lab","Male", "74"));
-            patientDao.insert(new Patient(2,"Joe", "Biden", "210C","Allergy","Male", "77"));
-            patientDao.insert(new Patient(3,"Arjun", "Goose", "222B","Nerosurgery","Male","35"));
-            patientDao.insert(new Patient(4,"Justin", "Biber", "318A","Orthopedic","Male","26"));
-            patientDao.insert(new Patient(4,"Annie", "Smith", "318A","Allergy","Female","73"));
+        protected Void doInBackground(Void... voids) {
+            patientDao.insert(new Patient(2, "Donald", "Trump", "111A", "Blood Lab", "Male", "74"));
+            patientDao.insert(new Patient(2, "Joe", "Biden", "210C", "Allergy", "Male", "77"));
+            patientDao.insert(new Patient(3, "Arjun", "Goose", "222B", "Nerosurgery", "Male", "35"));
+            patientDao.insert(new Patient(4, "Justin", "Biber", "318A", "Orthopedic", "Male", "26"));
+            patientDao.insert(new Patient(4, "Annie", "Smith", "318A", "Allergy", "Female", "73"));
 
             Calendar calendar = Calendar.getInstance();
-            Date date =  calendar.getTime();
-            testDao.insert(new Test(1, "100","14","85%","104",true,date));
-            testDao.insert(new Test(1, "100","16","95%","90",false,date));
+            Date date = calendar.getTime();
+            testDao.insert(new Test(1, "100", "14", "85%", "104", true, date));
+            testDao.insert(new Test(1, "100", "16", "95%", "90", false, date));
 
-            testDao.insert(new Test(2, "90","20","90%","120",false,date));
-            testDao.insert(new Test(2, "92","19","95%","110",false,date));
+            testDao.insert(new Test(2, "90", "20", "90%", "120", false, date));
+            testDao.insert(new Test(2, "92", "19", "95%", "110", false, date));
 
-            testDao.insert(new Test(3, "110","19","86%","112",true,date));
-            testDao.insert(new Test(3, "89","18","90%","100",false,date));
+            testDao.insert(new Test(3, "110", "19", "86%", "112", true, date));
+            testDao.insert(new Test(3, "89", "18", "90%", "100", false, date));
 
-            testDao.insert(new Test(4, "120","19","88%","90",true,date));
-            testDao.insert(new Test(4, "90","18","92%","100",false,date));
+            testDao.insert(new Test(4, "120", "19", "88%", "90", true, date));
+            testDao.insert(new Test(4, "90", "18", "92%", "100", false, date));
             return null;
         }
     }

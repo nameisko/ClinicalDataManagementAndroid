@@ -4,6 +4,7 @@ package lushi.cao.s301011302.fragment;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -34,6 +35,7 @@ public class LushiFragmentViewInformation extends Fragment {
     NavController navController;
     CaoSectionsPagerAdapter tabAdapter;
     ViewPager viewPager;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +46,9 @@ public class LushiFragmentViewInformation extends Fragment {
         View root = inflater.inflate(R.layout.fragment_patient_list, container, false);
         Context context = getActivity().getApplicationContext();
         tabAdapter = new CaoSectionsPagerAdapter(context, getChildFragmentManager());
-        viewPager= root.findViewById(R.id.view_pager);
+        viewPager = root.findViewById(R.id.lushiViewPager);
         viewPager.setAdapter(tabAdapter);
-        TabLayout tabs = root.findViewById(R.id.tabs);
+        TabLayout tabs = root.findViewById(R.id.lushiTabs);
         tabs.setupWithViewPager(viewPager);
         addPatientFab = (FloatingActionButton) root.findViewById(R.id.lushiAddPatientFab);
         addTestFab = (FloatingActionButton) root.findViewById(R.id.lushiAddTestFab);

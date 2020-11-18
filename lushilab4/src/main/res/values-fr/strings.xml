@@ -8,13 +8,11 @@ COMP304 SEC002
     <string name="tab_text_1">Mes patients</string>
     <string name="tab_text_2">Tous les patients</string>
     <string-array name="departments">
-        <item>Allergie</item>
-        <item>Laboratoire de sang</item>
-        <item>Neurochirurgie</item>
-        <item>Orthopédique</item>
+        <item>Allergy</item>
+        <item>Blood Lab</item>
+        <item>Nerosurgery</item>
+        <item>Orthopedic</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="first_name">Prénom</string>
     <string name="last_name">Nom de famille</string>
     <string name="gender">Le genre\u0020</string>
@@ -37,7 +35,7 @@ COMP304 SEC002
     <string name="covid_19">COVID-19</string>
     <string name="positive">Positif</string>
     <string name="negative">Négative</string>
-    <string name="test_date">Date du test</string>
+    <string name="test_date">Date</string>
     <string name="select_date">Sélectionner une date</string>
     <string name="add_test">Ajouter un test</string>
     <string name="start_here">Commencer ici</string>
@@ -55,4 +53,10 @@ COMP304 SEC002
     <string name="swipe_delete">Balayez vers la gauche pour supprimer un enregistrement</string>
     <string name="home_intro">eHealth répond au COVID-19 en prenant des mesures temporaires pour protéger la sécurité de nos patients, des membres de leur famille et du personnel, et en trouvant de nouvelles façons de soutenir notre communauté.</string>
     <string name="covid_19_information">\u0020INFORMATIONS SUR LE COVID-19</string>
+    <string name="enter_first_name">Entrez votre prénom</string>
+    <string name="enter_last_name">Entrer le nom de famille</string>
+    <string name="enter_age">Entrez l\'âge</string>
+    <string name="enter_room">Entrer dans la pièce</string>
+    <string name="blood_oxygen">Oxygène sanguin</string>
+    <string name="invalid_input">Entrée non valide, réessayez</string>
 </resources>

@@ -4,6 +4,7 @@ package lushi.cao.s301011302.viewmodel;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.app.Application;
 
 import androidx.annotation.NonNull;
@@ -32,21 +33,23 @@ public class PatientViewModel extends AndroidViewModel {
         myPatients = repo.getMyPatients();
     }
 
-    public LiveData<List<Patient>> getSpecificPatient(int id){
+    public LiveData<List<Patient>> getSpecificPatient(int id) {
         return repo.getSpecificPatient(id);
     }
 
-    public LiveData<List<Patient>> getPatientsByDept(String dept){return repo.getPatientsByDept(dept);}
+    public LiveData<List<Patient>> getPatientsByDept(String dept) {
+        return repo.getPatientsByDept(dept);
+    }
 
-    public void insert(Patient patient){
+    public void insert(Patient patient) {
         repo.insert(patient);
     }
 
-    public LiveData<List<Patient>> getAllPatients(){
+    public LiveData<List<Patient>> getAllPatients() {
         return allPatients;
     }
 
-    public LiveData<List<Patient>> getMyPatients(){
+    public LiveData<List<Patient>> getMyPatients() {
         return myPatients;
     }
 }

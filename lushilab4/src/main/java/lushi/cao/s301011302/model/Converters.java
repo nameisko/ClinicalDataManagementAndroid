@@ -1,4 +1,9 @@
 package lushi.cao.s301011302.model;
+/**
+ * Lushi Cao
+ * 301011302
+ * COMP304 SEC002
+ */
 
 import androidx.room.TypeConverter;
 

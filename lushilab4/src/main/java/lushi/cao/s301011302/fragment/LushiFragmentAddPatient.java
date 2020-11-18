@@ -81,7 +81,7 @@ public class LushiFragmentAddPatient extends Fragment {
         lastNameET = root.findViewById(R.id.lushiPatientLastET);
         roomET = root.findViewById(R.id.lushiPatientRoomET);
         ageET = root.findViewById(R.id.lushiPatientAgeET);
-        layout = root.findViewById(R.id.addPatientLayout);
+        layout = root.findViewById(R.id.lushiAddPatientLayout);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         departments = getResources().getStringArray(R.array.departments);
         genderRdGp = root.findViewById(R.id.lushiPatientGenderRdGp);
@@ -103,7 +103,7 @@ public class LushiFragmentAddPatient extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
+//                Toast.makeText(parent.getContext(), "Selected: none", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -157,7 +157,7 @@ public class LushiFragmentAddPatient extends Fragment {
     public void showPatientListFrag() {
         Fragment fragment = new LushiFragmentViewInformation();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.patientLayout, fragment);
+        fragmentTransaction.replace(R.id.lushiPatientLayout, fragment);
         fragmentTransaction.commit();
     }
 

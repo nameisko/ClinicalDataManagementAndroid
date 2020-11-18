@@ -4,6 +4,7 @@ package lushi.cao.s301011302.viewmodel;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.app.Application;
 
 import androidx.annotation.NonNull;
@@ -29,19 +30,19 @@ public class TestViewModel extends AndroidViewModel {
         allTests = repo.getAllTests();
     }
 
-    public void delete(Test test){
+    public void delete(Test test) {
         repo.delete(test);
     }
 
-    public void insert(Test test){
+    public void insert(Test test) {
         repo.insert(test);
     }
 
-    public LiveData<List<Test>> getPatientTests(int id){
+    public LiveData<List<Test>> getPatientTests(int id) {
         return repo.getPatientTests(id);
     }
 
-    public LiveData<List<Test>> getAllTests(){
+    public LiveData<List<Test>> getAllTests() {
         return allTests;
     }
 }

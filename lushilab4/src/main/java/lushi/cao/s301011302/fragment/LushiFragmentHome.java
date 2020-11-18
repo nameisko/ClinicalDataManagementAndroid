@@ -33,8 +33,6 @@ public class LushiFragmentHome extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        button = root.findViewById(R.id.startbtn);
-
         return root;
 
     }
@@ -43,7 +41,7 @@ public class LushiFragmentHome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         homeView = view;
-        button = view.findViewById(R.id.startbtn);
+        button = view.findViewById(R.id.lushiStartbtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

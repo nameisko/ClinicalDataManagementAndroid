@@ -13,8 +13,6 @@ COMP304 SEC002
         <item>Nerosurgery</item>
         <item>Orthopedic</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="gender">Gender\u0020</string>
@@ -60,4 +58,5 @@ COMP304 SEC002
     <string name="enter_age">Enter age</string>
     <string name="enter_room">Enter room</string>
     <string name="blood_oxygen">Blood Oxygen</string>
+    <string name="invalid_input">Invalid input, try again</string>
 </resources>

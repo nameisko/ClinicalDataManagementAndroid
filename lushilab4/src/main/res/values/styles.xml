@@ -25,6 +25,10 @@
         <item name ="android:textSize">16sp</item>
     </style>
 
+    <style name="separator">
+        <item name="android:divider">?android:dividerHorizontal</item>
+        <item name="android:showDividers">end</item>
+    </style>
     <style name="buttonStyle">
         <item name="android:backgroundTint">@color/yellow</item>
         <item name="android:textColor">@color/black</item>

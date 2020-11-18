@@ -67,7 +67,7 @@ public class LushiFragmentSearch extends Fragment {
         Context context = getActivity().getApplicationContext();
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         sharedPrefEditor = sharedPref.edit();
-        layout = root.findViewById(R.id.searchLayout);
+        layout = root.findViewById(R.id.lushiSearchLayout);
         testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         departments = getResources().getStringArray(R.array.departments);
@@ -82,7 +82,7 @@ public class LushiFragmentSearch extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 deptStr = parent.getItemAtPosition(position).toString();
-                Toast.makeText(context, deptStr, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, deptStr, Toast.LENGTH_SHORT).show();
                 spinner.setSelection(position);
             }
 
@@ -152,7 +152,7 @@ public class LushiFragmentSearch extends Fragment {
                 }
             }
         });
-        searchByDeptBtn = view.findViewById(R.id.searchByDeptBtn);
+        searchByDeptBtn = view.findViewById(R.id.lushiSearchByDeptBtn);
         searchByDeptBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,7 +170,7 @@ public class LushiFragmentSearch extends Fragment {
         if (idStr.isEmpty() || !idStr.matches(numRegex)) {
             isValid = false;
             idET.requestFocus();
-            idET.setError("Invalid input, try again");
+            idET.setError(getString(R.string.invalid_input));
         }
         return isValid;
     }

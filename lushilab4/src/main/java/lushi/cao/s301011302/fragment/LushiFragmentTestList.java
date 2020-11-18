@@ -63,7 +63,7 @@ public class LushiFragmentTestList extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_test_list, container, false);
         Context context = getActivity().getApplicationContext();
-        layout = root.findViewById(R.id.testLayout);
+        layout = root.findViewById(R.id.lushiTestLayout);
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         patientID = sharedPref.getInt("patientId", 0);
         recyclerView = root.findViewById(R.id.lushiTestRecyclerView);

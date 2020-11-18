@@ -4,6 +4,7 @@ package lushi.cao.s301011302.fragment;
  * 301011302
  * COMP304 SEC002
  */
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -59,13 +60,13 @@ public class LushiFragmentMyPatients extends Fragment {
         adapter.setView(root);
         patientViewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
 
-            patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
-                @Override
-                public void onChanged(List<Patient> patients) {
-                    //update recycler view
-                    adapter.setPatients(patients);
-                }
-            });
+        patientViewModel.getMyPatients().observe(getActivity(), new Observer<List<Patient>>() {
+            @Override
+            public void onChanged(List<Patient> patients) {
+                //update recycler view
+                adapter.setPatients(patients);
+            }
+        });
         return root;
     }
 }

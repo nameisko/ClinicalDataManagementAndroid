@@ -20,7 +20,7 @@
         android:padding="10dp"
         android:gravity="center_vertical|center_horizontal">
         <Button
-            android:id="@+id/startbtn"
+            android:id="@+id/lushiStartbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/buttonStyle"

@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/pale_purple"
-    android:id="@+id/testLayout"
+    android:id="@+id/lushiTestLayout"
     android:layout_weight="1"
     tools:context=".fragment.LushiFragmentTestList">
     <LinearLayout
         android:orientation="vertical"
-        android:layout_weight="0.70"
-        android:divider="?android:dividerHorizontal"
-        android:showDividers="end"
+        android:layout_weight="0.85"
+        style="@style/separator"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
@@ -24,24 +23,20 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
-        android:layout_weight="0.2"
+        android:layout_weight="0.15"
+        android:paddingBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="10dp"
             android:text="@string/swipe_delete"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lushiTestRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="0.8">
     </LinearLayout>
 </LinearLayout>
