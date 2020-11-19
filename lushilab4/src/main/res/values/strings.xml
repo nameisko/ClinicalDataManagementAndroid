@@ -28,7 +28,7 @@ COMP304 SEC002
     <string name="enter_blood_pressure">Enter blood pressure</string>
     <string name="respiratory_rate">Respiratory Rate</string>
     <string name="enter_respiratory_rate_bpm">Enter respiratory rate (bpm)</string>
-    <string name="blood_oxygen_level">Blood Oxygen Level</string>
+    <string name="blood_oxygen_level">Blood oxygen level</string>
     <string name="enter_blood_oxygen_level">Enter Blood Oxygen Level (%)</string>
     <string name="heart_rate">Heart Rate</string>
     <string name="enter_heart_rate_bpm">Enter heart rate (bpm)</string>

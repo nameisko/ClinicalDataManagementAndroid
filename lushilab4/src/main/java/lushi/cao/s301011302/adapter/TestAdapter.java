@@ -16,20 +16,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
 
-public class CaoTestAdapter extends RecyclerView.Adapter<CaoTestAdapter.ViewHolder> {
+public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
     private List<Test> tests = new ArrayList<>();
     Context context;
 
     @NonNull
     @Override
-    public CaoTestAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TestAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.test_list, parent, false);
         return new ViewHolder(view);
     }

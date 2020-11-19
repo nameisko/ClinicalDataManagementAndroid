@@ -25,7 +25,7 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.material.tabs.TabLayout;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.adapter.CaoSectionsPagerAdapter;
+import lushi.cao.s301011302.adapter.SectionsPagerAdapter;
 
 public class LushiFragmentViewInformation extends Fragment {
     FragmentManager fragmentManager;
@@ -33,7 +33,7 @@ public class LushiFragmentViewInformation extends Fragment {
     FloatingActionButton addPatientFab;
     FloatingActionsMenu mainFab;
     NavController navController;
-    CaoSectionsPagerAdapter tabAdapter;
+    SectionsPagerAdapter tabAdapter;
     ViewPager viewPager;
 
     @Override
@@ -45,7 +45,7 @@ public class LushiFragmentViewInformation extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_patient_list, container, false);
         Context context = getActivity().getApplicationContext();
-        tabAdapter = new CaoSectionsPagerAdapter(context, getChildFragmentManager());
+        tabAdapter = new SectionsPagerAdapter(context, getChildFragmentManager());
         viewPager = root.findViewById(R.id.lushiViewPager);
         viewPager.setAdapter(tabAdapter);
         TabLayout tabs = root.findViewById(R.id.lushiTabs);

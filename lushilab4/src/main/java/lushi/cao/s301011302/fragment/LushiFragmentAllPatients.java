@@ -25,7 +25,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.adapter.CaoPatientAdapter;
+import lushi.cao.s301011302.adapter.PatientAdapter;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
 
@@ -34,7 +34,7 @@ public class LushiFragmentAllPatients extends Fragment {
     SharedPreferences sharedPref;
     SharedPreferences.Editor sharedPrefEditor;
     RecyclerView recylcerView;
-    CaoPatientAdapter adapter;
+    PatientAdapter adapter;
     PatientViewModel patientViewModel;
     boolean newPatientSubmitted;
     CoordinatorLayout layout;
@@ -54,7 +54,7 @@ public class LushiFragmentAllPatients extends Fragment {
         sharedPrefEditor = sharedPref.edit();
         recylcerView = root.findViewById(R.id.lushiRecyclerView);
         recylcerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new CaoPatientAdapter();
+        adapter = new PatientAdapter();
         recylcerView.setAdapter(adapter);
         adapter.setContext(context);
         adapter.setActivity(getActivity());

@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +28,7 @@ import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.model.Patient;
 
 
-public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.ViewHolder> {
+public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHolder> {
     private List<Patient> patients = new ArrayList<>();
     Patient patient;
     Context context;
@@ -41,7 +40,7 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     View view;
 
     @Override
-    public CaoPatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PatientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.patient_list, parent, false);
         return new ViewHolder(view);
     }
@@ -63,7 +62,7 @@ public class CaoPatientAdapter extends RecyclerView.Adapter<CaoPatientAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(CaoPatientAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(PatientAdapter.ViewHolder holder, int position) {
         Resources res = context.getResources();
         String nameStr = patients.get(position).getFirstName() + " " + patients.get(position).getLastName();
         String patientIdStr = res.getString(R.string.patient_id) + String.valueOf(patients.get(position).getPatientID());

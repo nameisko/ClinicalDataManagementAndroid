@@ -7,7 +7,6 @@ package lushi.cao.s301011302.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -22,7 +21,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,8 +29,8 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 import lushi.cao.s301011302.R;
-import lushi.cao.s301011302.adapter.CaoPatientAdapter;
-import lushi.cao.s301011302.adapter.CaoTestAdapter;
+import lushi.cao.s301011302.adapter.PatientAdapter;
+import lushi.cao.s301011302.adapter.TestAdapter;
 import lushi.cao.s301011302.model.Patient;
 import lushi.cao.s301011302.model.Test;
 import lushi.cao.s301011302.viewmodel.PatientViewModel;
@@ -42,8 +40,8 @@ public class LushiFragmentTestList extends Fragment {
     SharedPreferences sharedPref;
     PatientViewModel patientViewModel;
     TestViewModel testViewModel;
-    CaoTestAdapter testAdapter;
-    CaoPatientAdapter patientAdapter;
+    TestAdapter testAdapter;
+    PatientAdapter patientAdapter;
     RecyclerView recyclerView;
     RecyclerView recyclerView2;
     TextView patientInfo;
@@ -70,8 +68,8 @@ public class LushiFragmentTestList extends Fragment {
         recyclerView2 = root.findViewById(R.id.lushiTestPatientInfoRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView2.setLayoutManager(new LinearLayoutManager(context));
-        testAdapter = new CaoTestAdapter();
-        patientAdapter = new CaoPatientAdapter();
+        testAdapter = new TestAdapter();
+        patientAdapter = new PatientAdapter();
         patientAdapter.setView(root);
         patientAdapter.setContext(context);
         testAdapter.setContext(context);
