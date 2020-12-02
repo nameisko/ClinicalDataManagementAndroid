@@ -77,6 +77,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHold
         holder.gender.setText(genderStr);
         GradientDrawable gd = new GradientDrawable();
         gd.setCornerRadius(10);
+
         switch (patients.get(position).getDepartment()) {
             case "Blood Lab":
                 gd.setColor(ContextCompat.getColor(context, R.color.light_red));
@@ -94,6 +95,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHold
         sharedPref = context.getSharedPreferences("healthInfo", Context.MODE_PRIVATE);
         sharedPrefEditor = sharedPref.edit();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 try {
