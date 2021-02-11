@@ -1,9 +1,4 @@
 package lushi.cao.s301011302.adapter;
-/**
- * Lushi Cao
- * 301011302
- * COMP304 SEC002
- */
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +21,6 @@ import java.util.List;
 
 import lushi.cao.s301011302.R;
 import lushi.cao.s301011302.model.Patient;
-
 
 public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHolder> {
     private List<Patient> patients = new ArrayList<>();

@@ -19,8 +19,8 @@ This is a health application for health care providers to manage patient and pat
 Contact: lcao42@my.centennialcollege.ca
 
 ### Screens
-![](images/screen1.png)
-![](images/screen2.png)
+![](images/screen1.PNG)
+![](images/screen2.PNG)
 ![](images/screen3.png)
 ![](images/screen4.png)
 

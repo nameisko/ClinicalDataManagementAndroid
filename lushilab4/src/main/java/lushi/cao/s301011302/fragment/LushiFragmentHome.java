@@ -1,9 +1,4 @@
 package lushi.cao.s301011302.fragment;
-/**
- * Lushi Cao
- * 301011302
- * COMP304 SEC002
- */
 
 import android.content.Intent;
 import android.os.Bundle;

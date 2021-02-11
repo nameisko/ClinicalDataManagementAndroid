@@ -1,9 +1,4 @@
 package lushi.cao.s301011302.fragment;
-/**
- * Lushi Cao
- * 301011302
- * COMP304 SEC002
- */
 
 import android.app.DatePickerDialog;
 import android.content.Context;
